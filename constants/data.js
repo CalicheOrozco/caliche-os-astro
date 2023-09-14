@@ -36,6 +36,14 @@ import {
   Typescript,
   Nextjs,
   Flask,
+  NTT,
+  Bedu,
+  EstudiantesVerdesMx,
+  IEEE,
+  Logiety,
+  Nb,
+  Scio,
+  Veracruz,
 } from "../src/images/images.js";
 
 const myData = {
@@ -309,7 +317,7 @@ const myData = {
   experience: [
     {
       title: "Centers Senior Developer",
-      icon: "../src/images/companies/ntt.jpeg",
+      icon: NTT,
       company: "NTT Data",
       location: "León, Guanajuato, Mexico",
       startDate: "Mar 2023",
@@ -327,7 +335,7 @@ const myData = {
     },
     {
       title: "Front-End Developer",
-      icon: "../src/images/companies/bedu.png",
+      icon: Bedu,
       company: "BEDU",
       location: "Mexico City, Mexico",
       startDate: "Dec 2021",
@@ -346,7 +354,7 @@ const myData = {
     },
     {
       title: "Apprenticeship",
-      icon: "../src/images/companies/scio.png",
+      icon: Scio,
       company: "Scio Consulting",
       location: "Morelia, Michoacán, México",
       startDate: "Sep 2021",
@@ -364,7 +372,7 @@ const myData = {
     },
     {
       title: "Front-end Internship",
-      icon: "../src/images/companies/logiety.png",
+      icon: Logiety,
       company: "Logiety",
       location: " Veracruz, México",
       startDate: "Feb 2021",
@@ -381,7 +389,7 @@ const myData = {
     },
     {
       title: "Help Newcomers and promoter of Latino America culture",
-      icon: "../src/images/companies/nb.jpeg",
+      icon: Nb,
       company: "Hola New Brunswick",
       location: "Moncton, New Brunswick, Canada",
       startDate: "Jun 2022",
@@ -394,7 +402,7 @@ const myData = {
     },
     {
       title: "IEEE ITVER",
-      icon: "../src/images/companies/ieee.png",
+      icon: IEEE,
       location: " Veracruz, México",
       company: "Institute of Electrical and Electronics Engineers ITVER.",
       startDate: "Sep 2017",
@@ -410,7 +418,7 @@ const myData = {
     },
     {
       title: "Pro sustainability",
-      icon: "../src/images/companies/estudiantes.jpg",
+      icon: EstudiantesVerdesMx,
       company: "ITVER Green Students.",
       location: " Veracruz, México",
       startDate: "Aug 2017",
@@ -427,7 +435,7 @@ const myData = {
     },
     {
       title: "IT culture coordinator and promoter",
-      icon: "../src/images/companies/veracruz.png",
+      icon: Veracruz,
       company: "Veracruz",
       location: " Veracruz, México",
       startDate: "Sep 2017",
@@ -443,7 +451,7 @@ const myData = {
     },
     {
       title: "Conferences and Workshops",
-      icon: "../src/images/companies/veracruz.png",
+      icon: Veracruz,
       company: "Veracruz",
       location: " Veracruz, México",
       startDate: "Sep 2019",

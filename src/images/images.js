@@ -36,3 +36,12 @@ export { default as Graphql } from "../images/icons/graphql.ico";
 export { default as Typescript } from "../images/icons/typescript.ico";
 export { default as Nextjs } from "../images/icons/nextjs.ico";
 export { default as Flask } from "../images/icons/flask.ico";
+export { default as NTT } from "../images/companies/ntt.jpeg";
+export { default as Bedu } from "../images/companies/bedu.png";
+export { default as EstudiantesVerdesMx } from "../images/companies/estudiantes.jpg";
+export { default as IEEE } from "../images/companies/ieee.png";
+export { default as Logiety } from "../images/companies/logiety.png";
+export { default as Nb } from "../images/companies/nb.jpeg";
+export { default as Scio } from "../images/companies/scio.png";
+export { default as Veracruz } from "../images/companies/veracruz.png";
+
