@@ -1,3 +1,12 @@
+import {
+  projects,
+  skills,
+  experencies,
+  about,
+  contact,
+  resume,
+} from "../src/images/images.js";
+
 const myData = {
   githubUsername: "CalicheOrozco",
   name: "Caliche Orozco",
@@ -8,32 +17,32 @@ const myData = {
     {
       name: "Projects",
       url: "/projects",
-      icon: "../src/images/navbar/projects.ico",
+      icon: projects,
     },
     {
       name: "Skills",
       url: "/skills",
-      icon: "../src/images/navbar/skills.ico",
+      icon: skills,
     },
     {
       name: "Experience",
       url: "/experience",
-      icon: "../src/images/navbar/experencies.ico",
+      icon: experencies,
     },
     {
       name: "About",
       url: "/about",
-      icon: "../src/images/navbar/about (2).ico",
+      icon: about,
     },
     {
       name: "Contact",
       url: "/contact",
-      icon: "../src/images/navbar/contact.png",
+      icon: contact,
     },
     {
       name: "Resume",
       url: "/resume",
-      icon: "../src/images/navbar/resume.ico",
+      icon: resume,
     },
   ],
   projects: [
