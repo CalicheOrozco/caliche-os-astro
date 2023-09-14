@@ -24,6 +24,18 @@ import {
   portafolio17,
   portafolio18,
   portafolio19,
+  HTML,
+  CSS,
+  Javascript,
+  React,
+  Nodejs,
+  Tailwind,
+  Bootstrap,
+  ReactQuery,
+  Graphql,
+  Typescript,
+  Nextjs,
+  Flask,
 } from "../src/images/images.js";
 
 const myData = {
@@ -220,55 +232,55 @@ const myData = {
     languages: [
       {
         name: "HTML",
-        icon: "../src/images/icons/html.ico",
+        icon: HTML,
       },
       {
         name: "CSS",
-        icon: "../src/images/icons/css.ico",
+        icon: CSS,
       },
       {
         name: "Javascript",
-        icon: "../src/images/icons/javascript.ico",
+        icon: Javascript,
       },
     ],
     libraries: [
       {
         name: "Node.js",
-        icon: "../src/images/icons/nodejs.ico",
+        icon: Nodejs,
       },
       {
         name: "Tailwind CSS",
-        icon: "../src/images/icons/tailwind.ico",
+        icon: Tailwind,
       },
       {
         name: "React Query",
-        icon: "../src/images/icons/react-query.ico",
+        icon: ReactQuery,
       },
       {
         name: "GraphQL",
-        icon: "../src/images/icons/graphql.ico",
+        icon: Graphql,
       },
       {
         name: "Typescript",
-        icon: "../src/images/icons/typescript.ico",
+        icon: Typescript,
       },
       {
         name: "Bootstrap",
-        icon: "../src/images/icons/bootstrap.ico",
+        icon: Bootstrap,
       },
     ],
     frameworks: [
       {
         name: "React.js",
-        icon: "../src/images/icons/react.ico",
+        icon: React,
       },
       {
         name: "Next.js",
-        icon: "../src/images/icons/nextjs.ico",
+        icon: Nextjs,
       },
       {
         name: "Flask",
-        icon: "../src/images/icons/flask.ico",
+        icon: Flask,
       },
     ],
   },
