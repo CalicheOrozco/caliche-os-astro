@@ -44,6 +44,9 @@ import {
   Nb,
   Scio,
   Veracruz,
+  LinkedIn,
+  Github,
+  Mail,
 } from "../src/images/images.js";
 
 const myData = {
@@ -471,17 +474,17 @@ const myData = {
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/calicheorozco/",
-      icon: "../src/images/social/linkedin.ico",
+      icon: LinkedIn,
     },
     {
       name: "GitHub",
       url: "https://github.com/CalicheOrozco",
-      icon: "../src/images/social/github.ico",
+      icon: Github,
     },
     {
       name: "Mail",
       url: "mailto:info@calicheorozco.com",
-      icon: "../src/images/social/mail.png",
+      icon: Mail,
     },
   ],
 };

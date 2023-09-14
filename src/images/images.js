@@ -48,5 +48,6 @@ export { default as Wikipedia } from "../images/icons/wikipedia.png";
 export { default as Wikipedia2 } from "../images/icons/wikipedia2.svg";
 export { default as Wikipedia3 } from "../images/icons/wikipedia3.svg";
 export { default as Avatar } from "../images/avatar.jpg";
-
-
+export { default as LinkedIn } from "../images/social/linkedin.ico";
+export { default as Github } from "../images/social/github.ico";
+export { default as Mail } from "../images/social/mail.png";

@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import myData from "../../constants/data.js";
+import { Image } from "astro:assets";   
+import Window from "../components/Window.astro";
+import WindowSection from "../components/WindowSection.astro";
+
+---
+
+<Layout title="Caliche Orozco's Contact">
+    <main className="relative">
+        
+        <Window title="Contact">
+        <WindowSection title={"Social Media"}>
+              {
+                myData.socialLinks.map((item, key) => (
+                  <li key={`Contact-${key}`}>
+                <a href={item.url} target="_blank">
+                <div 
+                  className={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={50}
+                    height={50}
+                  />
+                  <span>{item.name}</span>
+                </div>
+                </a>
+              </li>
+                ))
+              }
+            </WindowSection>
+        </Window>
+        </main>
+</Layout>
