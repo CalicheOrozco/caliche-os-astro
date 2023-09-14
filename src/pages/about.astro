@@ -5,9 +5,9 @@ import { Image } from "astro:assets";
 import Window from "../components/Window.astro";
 import Card from "../components/Card.astro";
 import WikipediaProfile from "../components/WikipediaProfile.astro";
+import { Avatar } from "../../src/images/images.js";
 
 const name = "Caliche Orozco";
-  const imageSrc = "../src/images/avatar.jpg";
   const description = [
   "Caliche Orozco is a skilled middle-level front-end developer with a focus on creating responsive web designs and mobile apps for startups. With expertise in technologies like React, TailwindCSS, Next.js, TypeScript, and GraphQL, Caliche is dedicated to delivering high-quality, efficient, and scalable solutions to meet user needs. They have collaborated with interdisciplinary teams across diverse industries, including education, consulting, and foreign trade, contributing to the development of web products and improving website performance. Caliche's proficiency in UX/UI best practices, agile methodologies, and reusable code development showcases their commitment to excellence. Fluent in English and driven by continuous learning, Caliche is a valuable asset for clients seeking impactful front-end development.",
   "If you are searching for an experienced and detail-oriented front-end developer who prioritizes quality, Caliche Orozco is the ideal candidate. Their expertise, combined with their ability to work effectively with international teams, ensures the delivery of exceptional digital solutions. Don't hesitate to reach out to Caliche to discuss your project requirements and explore how they can contribute to your success.",
@@ -18,7 +18,7 @@ const name = "Caliche Orozco";
     <main className="relative">
        
           <Window title="About">
-          <WikipediaProfile name={name} imageSrc={imageSrc} description={description} role={myData.designation} currentJob={myData.about.currentCompany} currentProject={myData.about.currentProject} education={myData.about.education} languages={myData.about.languages} />
+          <WikipediaProfile name={name} imageSrc={Avatar} description={description} role={myData.designation} currentJob={myData.about.currentCompany} currentProject={myData.about.currentProject} education={myData.about.education} languages={myData.about.languages} />
           </Window>
       </main>
 </Layout>

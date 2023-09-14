@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Wikipedia, Wikipedia2, Wikipedia3 } from "../images/images.js";
 
 
 interface Props {
@@ -29,7 +30,7 @@ const {
     <div class="flex justify-between">
       <div class="flex justify-center items-center">
         <Image
-          src="../src/images/icons/wikipedia.png"
+          src={Wikipedia}
           alt="Wikipedia logo"
           class="pb-2"
           width={100}
@@ -39,7 +40,7 @@ const {
         />
         <span class="mx-2">
           <Image
-            src="../src/images/icons/wikipedia2.svg"
+            src={Wikipedia2}
             alt="Wikipedia logo title"
             class="pb-2"
             width={100}
@@ -48,7 +49,7 @@ const {
             loading="lazy"
           />
           <Image
-            src="../src/images/icons/wikipedia3.svg"
+            src={Wikipedia3}
             alt="Wikipedia logo description"
             class="pb-2"
             width={100}

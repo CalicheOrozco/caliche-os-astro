@@ -44,4 +44,9 @@ export { default as Logiety } from "../images/companies/logiety.png";
 export { default as Nb } from "../images/companies/nb.jpeg";
 export { default as Scio } from "../images/companies/scio.png";
 export { default as Veracruz } from "../images/companies/veracruz.png";
+export { default as Wikipedia } from "../images/icons/wikipedia.png";
+export { default as Wikipedia2 } from "../images/icons/wikipedia2.svg";
+export { default as Wikipedia3 } from "../images/icons/wikipedia3.svg";
+export { default as Avatar } from "../images/avatar.jpg";
+
 
