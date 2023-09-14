@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import myData from "../../constants/data.js";
+import { Image } from "astro:assets";   
+import Window from "../components/Window.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+
+---
+
+<Layout title="Caliche Orozco's Projects">
+    <main class="relative">
+          <Window title="Projects">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+              {myData.projects.map((proj, key) => (
+                <Card
+                  title={proj.title}
+                  link={proj.link}
+                  imgUrl={proj.imgUrl}
+                  github={proj.github}
+                  stack={proj.stack}
+                  key={key}
+                />
+              ))}
+            </div>
+          </Window>
+      </main>
+</Layout>

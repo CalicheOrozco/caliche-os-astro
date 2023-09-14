@@ -1,0 +1,21 @@
+---
+import myData from "../../constants/data.js";
+import { Image } from "astro:assets";
+---
+
+<nav class={`min-h-screen flex justify-center items-center lg:justify-start `}>
+  <ul class="flex flex-col gap-4 lg:p-10">
+    {
+      myData.navmenu.map((item, index) => (
+        <li>
+          <a href={item.url}>
+            <div class={`flex flex-col items-center p-2 rounded-md`}>
+              <Image src={item.icon} alt={item.name} width={50} height={50} decoding="async" loading="lazy" />
+              <span>{item.name}</span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

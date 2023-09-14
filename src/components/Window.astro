@@ -1,0 +1,59 @@
+---
+// Define tus propios iconos SVG con nombres diferentes para evitar conflictos
+let MyAiOutlineClose = `<svg width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">...</svg>`;
+let MyAiOutlineMinus = `<svg width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">...</svg>`;
+let MyVscChromeMaximize = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">...</svg>`;
+let MyVscChromeRestore = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-squares-diagonal" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">...</svg>`;
+
+const { title, children, noPadding, backgroundColor } = Astro.props;
+
+const handleClose = () => {
+  // Tu lógica para cerrar la ventana
+};
+
+const handleMaximize = () => {
+  // Tu lógica para maximizar la ventana
+};
+---
+
+<div class={`window rounded-t-lg shadow-lg m-0 min-h-screen ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}>
+  <div class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg px-3">
+    <div class="window-title text-white font-bold py-2">{title}</div>
+    <div class="window-buttons flex space-x-1 h-4">
+      <!-- Restaurar -->
+      <div class="window-button window-button-close h-6 w-8 lg:hover:bg-blue-600">
+        <a href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="32" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5 12l14 0" />
+      </svg>
+      </a>
+         </div>
+
+         <!-- Maximizar -->
+
+         <div class="window-button window-button-close h-6 w-8 lg:hover:bg-blue-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-squares-diagonal" width="32" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+            <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
+            <path d="M8.586 19.414l10.827 -10.827" />
+          </svg>
+
+           </div>
+      <!-- Cerrar -->
+      <div class="window-button window-button-close h-6 w-8 lg:hover:hover:bg-red-400">
+        <a  href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="32" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M18 6l-12 12" />
+          <path d="M6 6l12 12" />
+        </svg>
+        </a>
+         </div>
+    </div>
+  </div>
+  <div class={`window-content text-black overflow-y-auto ${noPadding ? "" : "p-4"}`}>
+    <slot />
+  </div>
+</div>

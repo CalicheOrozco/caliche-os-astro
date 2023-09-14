@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import myData from "../../constants/data.js";
+import { Image } from "astro:assets";   
+import Window from "../components/Window.astro";
+import ExperienceCard from "../components/ExperienceCard.astro";
+
+---
+
+<Layout title="Caliche Orozco's Experience">
+    <main className="relative">
+        <Window title="Experience">
+          {myData.experience.map((exp, key) => (
+            <ExperienceCard
+            companyName={exp.company}
+            jobTitle={exp.title}
+            description={exp.desc}
+            imageUrl={exp.icon}
+            startDate={exp.startDate}
+            endDate={exp.endDate}
+            location={exp.location}
+            link={exp.companyLink}
+            skills={exp.skills}
+            key={key}
+          />
+            ))}
+        </Window>
+  
+      </main>
+</Layout>

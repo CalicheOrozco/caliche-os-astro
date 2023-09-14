@@ -1,0 +1,25 @@
+---
+// Define la interfaz de las propiedades
+interface Props {
+  title: string;
+}
+
+// Extrae las propiedades
+const { title } = Astro.props;
+
+
+---
+
+<>
+    <!-- Separator -->
+    <div class="flex items-center my-4">
+    <div class="mx-4 text-gray-500">{title}</div>
+    <div class="h-px bg-gray-300 flex-1"></div>
+  </div>
+  <!-- y -->
+  <div>
+    <ul class="flex flex-wrap gap-4">
+      <slot />
+    </ul>
+  </div>
+</>
