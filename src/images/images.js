@@ -51,3 +51,8 @@ export { default as Avatar } from "../images/avatar.jpg";
 export { default as LinkedIn } from "../images/social/linkedin.ico";
 export { default as Github } from "../images/social/github.ico";
 export { default as Mail } from "../images/social/mail.png";
+
+export { default as closeIcon } from "../images/icons/closeIcon.svg";
+export { default as MaximizeIcon } from "../images/icons/maximizeIcon.svg";
+export { default as MinimizeIcon } from "../images/icons/minimizeIcon.svg";
+export { default as GithubIcon } from "../images/icons/githubIcon.svg";

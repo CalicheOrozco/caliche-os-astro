@@ -4,12 +4,18 @@ import myData from "../../constants/data.js";
 import { Image } from "astro:assets";   
 import Window from "../components/Window.astro";
 import WindowSection from "../components/WindowSection.astro";
+import Navbar from "../components/Navbar.astro";
+
 
 
 ---
 
 <Layout title="Caliche Orozco's Skills">
-    <main class="relative">
+    <main class="skillsContainer relative">
+      <div class="hidden containerNavbar"> 
+        <Navbar />
+      </div>
+      <div class="windowContainer"> 
           <Window title="Skills">
             <p>
               {myData.skills.description}
@@ -72,5 +78,6 @@ import WindowSection from "../components/WindowSection.astro";
               }
             </WindowSection>
           </Window>
+      </div>
       </main>
 </Layout>

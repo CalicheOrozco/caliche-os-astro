@@ -4,11 +4,16 @@ import myData from "../../constants/data.js";
 import { Image } from "astro:assets";   
 import Window from "../components/Window.astro";
 import ExperienceCard from "../components/ExperienceCard.astro";
+import Navbar from "../components/Navbar.astro";
 
 ---
 
 <Layout title="Caliche Orozco's Experience">
-    <main className="relative">
+    <main class="experienceContainer relative">
+      <div class="hidden containerNavbar"> 
+        <Navbar />
+      </div>
+      <div class="windowContainer"> 
         <Window title="Experience">
           {myData.experience.map((exp, key) => (
             <ExperienceCard
@@ -25,6 +30,7 @@ import ExperienceCard from "../components/ExperienceCard.astro";
           />
             ))}
         </Window>
+      </div>
   
       </main>
 </Layout>

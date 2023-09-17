@@ -6,6 +6,8 @@ import Window from "../components/Window.astro";
 import Card from "../components/Card.astro";
 import WikipediaProfile from "../components/WikipediaProfile.astro";
 import { Avatar } from "../../src/images/images.js";
+import Navbar from "../components/Navbar.astro";
+
 
 const name = "Caliche Orozco";
   const description = [
@@ -15,10 +17,14 @@ const name = "Caliche Orozco";
 ---
 
 <Layout title="About Caliche Orozco">
-    <main className="relative">
-       
+    <main class="aboutContainer relative">
+      <div class="hidden containerNavbar"> 
+        <Navbar />
+      </div>
+      <div class="windowContainer"> 
           <Window title="About">
           <WikipediaProfile name={name} imageSrc={Avatar} description={description} role={myData.designation} currentJob={myData.about.currentCompany} currentProject={myData.about.currentProject} education={myData.about.education} languages={myData.about.languages} />
           </Window>
+      </div>
       </main>
 </Layout>
