@@ -10,19 +10,22 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
 ---
 
 <div class={`main-window flex flex-col rounded-t-lg shadow-lg m-0 min-h-screen ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}>
-  <div class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg px-3">
-    <div class="window-title text-white font-bold py-2">{title}</div>
-    <div class="window-buttons flex space-x-1 h-4">
+  <div class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg ps-3">
+    <div class="window-title text-white font-bold">{title}</div>
+    <div class="window-buttons flex space-x-1 h-4 py-4 justify-center items-center">
       <!-- Restaurar -->
-      <div class="window-button cursor-pointer window-button-close h-6 w-8 lg:hover:bg-blue-600">
-        <a href="/"> 
+      <div class="window-button cursor-pointer window-button-close h-6 w-8 lg:hover:bg-blue-600 flex justify-center items-center py-4" id="restore-button">
           <Image src={MinimizeIcon} alt="Minimize windows" width={100} height={200} decoding="async" loading="lazy" />
-        </a>
       </div>
 
       <!-- Maximizar -->
-      <div class="window-button window-button-close cursor-pointer h-6 w-8 lg:hover:bg-blue-600" id="maximize-button">
+      <div class="window-button window-button-close cursor-pointer h-6 w-8 lg:hover:bg-blue-600 flex justify-center items-center py-4" id="maximize-button">
         <Image src={MaximizeIcon} alt="Maximize window" width={100} height={200} />
+      </div>
+      
+      <!-- Cerrar -->
+      <div class="window-button window-button-close cursor-pointer h-6 w-8 lg:hover:bg-red-400 flex justify-center items-center py-4" id="close-button">
+          <Image src={closeIcon} alt="Close window" width={100} height={200} />
       </div>
 
       <script type="module">
@@ -30,18 +33,22 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
           let isMaximized = false;
           const navbar = document.querySelector(".navbar");
           const containerNavbar = document.querySelector(".containerNavbar");
-          const maximizeButton = document.getElementById("maximize-button");
           const mainWindow = document.querySelector(".main-window");
           const windowContainer = document.querySelector(".windowContainer");
+          const maximizeButton = document.getElementById("maximize-button");
+          const closeButton = document.getElementById("close-button");
+          const restoreButton = document.getElementById("restore-button");
       
           const containers = [
-            document.querySelector(".projectContainer"),
-            document.querySelector(".skillsContainer"),
-            document.querySelector(".experienceContainer"),
-            document.querySelector(".aboutContainer"),
-            document.querySelector(".contactContainer"),
-            document.querySelector(".resumeContainer"),
-          ];
+            ".projectContainer",
+            ".skillsContainer",
+            ".experienceContainer",
+            ".aboutContainer",
+            ".contactContainer",
+            ".resumeContainer",
+          ].map(selector => document.querySelector(selector));
+      
+          const commonClasses = ["flex", "flex-row", "h-full", "w-full", "justify-start", "items-center"];
       
           const addOrRemoveClasses = (element, action, classes) => {
             if (!element) return;
@@ -51,11 +58,8 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
           navbar.classList.add("hidden");
       
           maximizeButton.addEventListener("click", () => {
-            if (window.innerWidth < 1024) {
-              return; 
-            }
-            const commonClasses = ["flex", "flex-row", "h-full", "w-full", "justify-start", "items-center"];
-            
+            if (window.innerWidth < 1024) return;
+      
             if (!isMaximized) {
               mainWindow.classList.remove("min-h-screen");
               mainWindow.classList.add("h-[90vh]", "w-[80%]", "pb-3");
@@ -64,33 +68,37 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
               containerNavbar.classList.remove("hidden");
       
               containers.forEach(container => addOrRemoveClasses(container, "add", commonClasses));
-              addOrRemoveClasses(windowContainer, "add",["w-full", "flex", "justify-center"])
+              addOrRemoveClasses(windowContainer, "add", ["w-full", "flex", "justify-center"]);
+      
               if (containers[2]) {
                 containers[2].classList.add("testnanana");
               }
             } else {
               mainWindow.classList.add("min-h-screen");
-              mainWindow.classList.remove("h-[90vh]", "w-5/6", "pb-3");
+              mainWindow.classList.remove("h-[90vh]", "w-[80%]", "pb-3");
       
               navbar.classList.add("hidden");
               containerNavbar.classList.add("hidden");
       
               containers.forEach(container => addOrRemoveClasses(container, "remove", commonClasses));
-              addOrRemoveClasses(windowContainer, "remove",["w-full", "flex", "justify-center"])
+              addOrRemoveClasses(windowContainer, "remove", ["w-full", "flex", "justify-center"]);
             }
       
             isMaximized = !isMaximized;
           });
+      
+          const closeOrRestore = () => {
+          navbar.classList.remove("hidden");
+          containerNavbar.classList.remove("hidden");
+          mainWindow.classList.add("hidden");
+        };
+
+        closeButton.addEventListener("click", closeOrRestore);
+        restoreButton.addEventListener("click", closeOrRestore);
+
         }, 0);
-      </script>
+      </script>  
       
-      
-      <!-- Cerrar -->
-      <div class="window-button window-button-close h-6 w-8 lg:hover:bg-red-400">
-        <a href="/"> 
-          <Image src={closeIcon} alt="Close window" width={100} height={200} />
-        </a>
-      </div>
     </div>
   </div>
   <div class={`window-content flex-grow overflow-auto text-black ${noPadding ? "" : "p-4"}`}>
