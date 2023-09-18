@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Window from "../components/Window.astro";
 ---
 
-<Layout title="Caliche Orozco's Conocer">
+<Layout title="Caliche Orozco's Never Have I Ever">
   <main class="relative">
-    <Window title="Conocer" backgroundColor="bg-[#0f172a] text-white">
+    <Window title="Never Have I Ever" backgroundColor="bg-[#0f172a] text-white">
       <div id="fraseContainer" class="flex justify-center items-center flex-col h-full text-center">
         <!-- El contenido se llenará dinámicamente -->
       </div>
@@ -28,7 +28,7 @@ import Window from "../components/Window.astro";
 
         const generateFrase = () => {
           if (frases.length === 0) {
-            currentFrase = '¡Se han terminado los Nunca nunca! Recuerda que me puedes contactar para agregar más frases.';
+            currentFrase = 'The Never Have I Ever game is over! Remember that you can contact me to add more phrases.';
             updateFraseElement();
             return;
           }
@@ -37,7 +37,7 @@ import Window from "../components/Window.astro";
           updateFraseElement();
         };
 
-        fetch('/conocer.json')
+        fetch('/iNeverNever.json')
           .then(response => response.json())
           .then(data => {
             frases = data;
@@ -56,7 +56,7 @@ import Window from "../components/Window.astro";
         const buttonElement = document.createElement('button');
         buttonElement.type = 'button';
         buttonElement.className = 'text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800';
-        buttonElement.textContent = currentFrase === undefined ? 'Generar frase' : 'Generar otra frase';
+        buttonElement.textContent = currentFrase === undefined ? 'Generate sentence' : 'Generate another sentence';
         buttonElement.addEventListener('click', generateFrase);
         fraseContainer.appendChild(buttonElement);
 

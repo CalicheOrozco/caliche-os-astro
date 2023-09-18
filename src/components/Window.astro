@@ -9,7 +9,7 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
 
 ---
 
-<div class={`main-window flex flex-col rounded-t-lg shadow-lg m-0 min-h-screen ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}>
+<div class={`main-window flex flex-col rounded-t-lg shadow-lg m-0 min-h-screen`}>
   <div class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg ps-3">
     <div class="window-title text-white font-bold">{title}</div>
     <div class="window-buttons flex space-x-1 h-4 py-4 justify-center items-center">
@@ -101,7 +101,7 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
       
     </div>
   </div>
-  <div class={`window-content flex-grow overflow-auto text-black ${noPadding ? "" : "p-4"}`}>
+  <div class={`window-content flex-grow overflow-auto text-black ${noPadding ? "" : "p-4"}  ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}>
     <slot />
   </div>
 </div>

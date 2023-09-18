@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Window from "../components/Window.astro";
 ---
 
-<Layout title="Caliche Orozco's Conocer">
+<Layout title="Caliche Orozco's Nunca Nunca">
   <main class="relative">
-    <Window title="Conocer" backgroundColor="bg-[#0f172a] text-white">
+    <Window title="Nunca Nunca" backgroundColor="bg-[#0f172a] text-white">
       <div id="fraseContainer" class="flex justify-center items-center flex-col h-full text-center">
         <!-- El contenido se llenará dinámicamente -->
       </div>
@@ -37,7 +37,7 @@ import Window from "../components/Window.astro";
           updateFraseElement();
         };
 
-        fetch('/conocer.json')
+        fetch('/yoNuncaNunca.json')
           .then(response => response.json())
           .then(data => {
             frases = data;
