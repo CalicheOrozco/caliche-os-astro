@@ -1,8 +1,11 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { SEO } from "astro-seo";
 import { background } from "../images/images.js";
 import { Image } from "astro:assets";
-import '@fontsource/roboto';
+import "@fontsource/roboto";
+
+import { seoConfig } from "../services/pwaConfig";
 
 interface Props {
   title: string;
@@ -14,8 +17,30 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <SEO
+      title={title}
+      description={seoConfig.description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: seoConfig.image.url,
+        },
+        image: {
+          width: seoConfig.image.width,
+          height: seoConfig.image.height,
+          alt: seoConfig.image.alt,
+        },
+        optional: {
+          siteName: seoConfig.siteName,
+          description: seoConfig.description,
+        },
+      }}
+      twitter={{
+        card: seoConfig.twitter.card,
+      }}
+    />
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/ico" href="/icon.ico" />
     <meta name="generator" content={Astro.generator} />
@@ -32,9 +57,9 @@ const { title } = Astro.props;
         height="720"
       />
     </div>
-	<div class="relative z-10 font-sans">
-		<slot />
-	</div>
+    <div class="relative z-10 font-sans">
+      <slot />
+    </div>
     <style is:global>
       :root {
         --accent: 136, 58, 234;
@@ -48,14 +73,14 @@ const { title } = Astro.props;
         );
       }
       html {
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         background: #13151a;
         background-size: 224px;
         color-scheme: dark light;
       }
-	  body {
-		font-family: 'Roboto', sans-serif;
-		}
+      body {
+        font-family: "Roboto", sans-serif;
+      }
       code {
         font-family:
           Menlo,
