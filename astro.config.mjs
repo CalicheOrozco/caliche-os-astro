@@ -13,13 +13,39 @@ export default defineConfig({
     plugins: [
       VitePWA({
         registerType: "autoUpdate",
-        manifest, // Asegúrate de que esta variable esté definida
+        manifest,
         workbox: {
           globDirectory: "dist",
           globPatterns: [
             "**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}",
           ],
           navigateFallback: null,
+          // Configuraciones adicionales de Workbox
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/domain\.to\.cache/,
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "Caliche-cache",
+                expiration: {
+                  maxEntries: 200,
+                  maxAgeSeconds: 3000,
+                },
+              },
+            },
+          ],
+          additionalManifestEntries: [
+            "index.html",
+            "projects/index.html",
+            "skills/index.html",
+            "experience/index.html",
+            "about/index.html",
+            "contact/index.html",
+            "resume/index.html",
+            "nuncanunca/index.html",
+            "neverhaveiever/index.html",
+            // otros archivos que quieras precargar
+          ],
         },
       }),
     ],
