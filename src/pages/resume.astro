@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar.astro";
           </div>
           <div class="windowContainer"> 
             <Window title="Resume" noPadding={true} backgroundColor="bg-[#2a2a2e]">
+                <a class="text-white text-2xl flex justify-center font-bold lg:hidden " href="/CVCaliche.pdf" download>Descargar PDF</a>
                 <div class="">
                     <object
                         data="/CVCaliche.pdf"
@@ -19,7 +20,7 @@ import Navbar from "../components/Navbar.astro";
                         class="min-h-[calc(100vh-2.5rem)]"
                         style={{ height: '100%', width: '100%' }}
                         width="100%"
-                        height="100%"
+                        height="auto"
                     />
                 </div>
             </Window>
