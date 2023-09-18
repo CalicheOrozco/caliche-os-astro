@@ -23,7 +23,7 @@ export default defineConfig({
           // Configuraciones adicionales de Workbox
           runtimeCaching: [
             {
-              urlPattern: /^https:\/\/domain\.to\.cache/,
+              urlPattern: /^https:\/\/www\.calicheorozco\.com\//,
               handler: "NetworkFirst",
               options: {
                 cacheName: "Caliche-cache",
