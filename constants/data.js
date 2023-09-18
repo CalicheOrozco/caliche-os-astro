@@ -36,7 +36,7 @@ import {
   Typescript,
   Nextjs,
   Flask,
-  Astro
+  Astro,
   NTT,
   Bedu,
   EstudiantesVerdesMx,
