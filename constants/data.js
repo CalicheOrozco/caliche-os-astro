@@ -36,6 +36,7 @@ import {
   Typescript,
   Nextjs,
   Flask,
+  Astro
   NTT,
   Bedu,
   EstudiantesVerdesMx,
@@ -288,6 +289,10 @@ const myData = {
       {
         name: "Next.js",
         icon: Nextjs,
+      },
+      {
+        name: "Astro",
+        icon: Astro,
       },
       {
         name: "Flask",

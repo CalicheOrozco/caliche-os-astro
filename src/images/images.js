@@ -36,6 +36,7 @@ export { default as Graphql } from "../images/icons/graphql.ico";
 export { default as Typescript } from "../images/icons/typescript.ico";
 export { default as Nextjs } from "../images/icons/nextjs.ico";
 export { default as Flask } from "../images/icons/flask.ico";
+export { default as Astro } from "../images/icons/astro.ico";
 export { default as NTT } from "../images/companies/ntt.jpeg";
 export { default as Bedu } from "../images/companies/bedu.png";
 export { default as EstudiantesVerdesMx } from "../images/companies/estudiantes.jpg";
