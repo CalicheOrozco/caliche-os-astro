@@ -25,7 +25,9 @@ export const getBackground = type => {
     case 'Astro':
       return 'bg-blue-800'
     case 'OpenAI':
-      return 'bg-teal-500'
+      return 'bg-teal-600'
+    case 'Vite':
+      return 'bg-pink-500'
     default:
       return 'bg-blue-500'
   }
