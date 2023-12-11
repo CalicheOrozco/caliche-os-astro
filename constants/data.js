@@ -127,7 +127,7 @@ const myData = {
       stack: ['Astro', 'Tailwind', 'HTML/CSS', 'Typescript']
     },
     {
-      title: 'Web Code Editor',
+      title: 'Caliche Portfolio 2023',
       link: 'https://www.calicheorozco.com/',
       github: 'https://github.com/CalicheOrozco/caliche-os-astro',
       imgUrl: portafolio22,
