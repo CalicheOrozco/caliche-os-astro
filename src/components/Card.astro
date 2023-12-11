@@ -5,56 +5,48 @@ import { getBackground } from "../services/Badge.js";
 
 import { GithubIcon } from "../images/images.js";
 
-
-
 interface Props {
-	title: string;
-	github: string;
-	imgUrl: string;
-	link: string;
+  title: string;
+  github: string;
+  imgUrl: string;
+  link: string;
+  stack: string[];
 }
 
 const { title, github, imgUrl, link, stack } = Astro.props;
-
-
-
 ---
 
 <div class="relative overflow-hidden rounded-2xl">
-	<div class="object-cover">
-	  <a href={link} target="_blank" class="w-full block shadow-2xl">
-		<Image
-		  src={imgUrl}
-		  alt={`${title} portfolio`}
-		  class=" lg:hover:animate-pulse lg:hover:animate-infinite lg:hover:animate-duration-1000 lg:hover:animate-ease-linear lg:hover:animate-alternate object-cover h-full w-full"
-		  width={300}
-		  height={50}
-		/>
-	  </a>
-	</div>
-
-	<div class="absolute flex justify-center items-center w-full flex-wrap gap-2 bottom-5 z-10">
-		{stack.map((item) => {
-		  return (
-			<Chip background={getBackground(item)}>
-			  {item}
-			</Chip>
-		  );
-		})}
-	  </div>
-
-	  
-
-	<a href={github} target="_blank" class="w-full block shadow-2xl">
-	  <h1 class="absolute flex items-center top-5 right-2 text-gray-50 font-bold sm:text-lg  md:text-2xl bg-green-600 hover:bg-green-800 rounded-lg px-2">
-		<div class="flex gap-x-1 py-1">
-			<Image
-				src={GithubIcon}
-				alt="Close window"
-			/>
-			{title}
-		<div>
-		
-	  </h1>
-	</a>
+  <div class="block w-full h-full">
+    <a href={link} target="_blank" class="shadow-2xl">
+      <Image
+        src={imgUrl}
+        alt={`${title} portfolio`}
+        width={1080}
+        height={720}
+        class="w-full h-full object-cover lg:hover:animate-pulse lg:hover:animate-infinite lg:hover:animate-duration-1000 lg:hover:animate-ease-linear lg:hover:animate-alternate"
+      />
+    </a>
   </div>
+
+  <div
+    class="absolute bottom-5 z-10 w-full flex justify-center items-center flex-wrap gap-2"
+  >
+    {
+      stack.map((item) => {
+        return <Chip background={getBackground(item)}>{item}</Chip>;
+      })
+    }
+  </div>
+
+  <a href={github} target="_blank" class="shadow-2xl">
+    <h1
+      class="absolute top-5 right-2 text-gray-50 font-bold sm:text-lg md:text-2xl bg-green-600 hover:bg-green-800 rounded-lg px-2 flex items-center"
+    >
+      <div class="flex gap-x-1 py-1">
+        <Image src={GithubIcon} alt="Close window" />
+        {title}
+      </div>
+    </h1>
+  </a>
+</div>
