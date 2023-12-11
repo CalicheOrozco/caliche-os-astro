@@ -25,6 +25,8 @@ import {
   portafolio18,
   portafolio19,
   portafolio20,
+  portafolio21,
+  portafolio22,
   HTML,
   CSS,
   Javascript,
@@ -90,6 +92,19 @@ const myData = {
     }
   ],
   projects: [
+    
+    {
+      title: 'Web Code Editor',
+      link: 'https://web-code-editor-silk.vercel.app/',
+      github: 'https://github.com/CalicheOrozco/web-code-editor',
+      imgUrl: portafolio21,
+      stack: [
+        'React',
+        'Vite',
+        'HTML/CSS',
+        'Javascript',
+      ]
+    },
     {
       title: 'Image to code by Caliche',
       link: 'https://image-to-code-caliche.vercel.app/',
@@ -110,6 +125,20 @@ const myData = {
       github: 'https://github.com/CalicheOrozco/spacex-launches',
       imgUrl: portafolio19,
       stack: ['Astro', 'Tailwind', 'HTML/CSS', 'Typescript']
+    },
+    {
+      title: 'Web Code Editor',
+      link: 'https://www.calicheorozco.com/',
+      github: 'https://github.com/CalicheOrozco/caliche-os-astro',
+      imgUrl: portafolio22,
+      stack: [
+        'React',
+        'Astro',
+        'HTML/CSS',
+        'Javascript',
+        'Tailwind',
+        'Typescript'
+      ]
     },
     {
       title: 'Calichecraft',
