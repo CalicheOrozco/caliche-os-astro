@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Window from "../components/Window.astro";
+---
+
+<Layout title="Caliche Orozco's TOEFL">
+  <main class="relative">
+    <Window title="TOEFL" backgroundColor="bg-[#0f172a] text-white">
+      <div
+        id="fraseContainer"
+        class="flex justify-center items-center flex-col h-full text-center"
+      >
+        <!-- El contenido se llenará dinámicamente -->
+      </div>
+    </Window>
+    <script type="module">
+      setTimeout(() => {
+        let frases;
+        let currentFrase;
+
+        const updateFraseElement = () => {
+          const fraseElement = document.getElementById("currentFraseElement");
+          if (fraseElement) {
+            fraseElement.textContent = currentFrase;
+          }
+        };
+
+        const getRandomInt = (min, max) => {
+          return Math.floor(Math.random() * (max - min)) + min;
+        };
+
+        const generateFrase = () => {
+          if (frases.length === 0) {
+            currentFrase =
+              "¡Se han terminado las frases, Recuerda que me puedes contactar para agregar más frases.";
+            updateFraseElement();
+            return;
+          }
+          const num = getRandomInt(0, frases.length);
+          currentFrase = frases.splice(num, 1)[0];
+          updateFraseElement();
+        };
+
+        fetch("/TOEFL.json")
+          .then((response) => response.json())
+          .then((data) => {
+            frases = data;
+            generateFrase();
+          });
+
+        // Crear y añadir elementos dinámicamente
+        const fraseContainer = document.getElementById("fraseContainer");
+
+        const h1Element = document.createElement("h1");
+        h1Element.id = "currentFraseElement";
+        h1Element.className =
+          "fraseContainer leading-loose text-2xl md:text-4xl font-semibold mx-4 pb-5";
+        h1Element.style.lineHeight = "3rem";
+        fraseContainer.appendChild(h1Element);
+
+        const buttonElement = document.createElement("button");
+        buttonElement.type = "button";
+        buttonElement.className =
+          "text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800";
+        buttonElement.textContent =
+          currentFrase === undefined ? "Generar frase" : "Generar otra frase";
+        buttonElement.addEventListener("click", generateFrase);
+        fraseContainer.appendChild(buttonElement);
+      }, 0);
+    </script>
+  </main>
+</Layout>
