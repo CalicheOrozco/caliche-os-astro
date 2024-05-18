@@ -27,6 +27,7 @@ import {
   portafolio20,
   portafolio21,
   portafolio22,
+  portafolio23,
   HTML,
   CSS,
   Javascript,
@@ -92,18 +93,27 @@ const myData = {
     }
   ],
   projects: [
-    
     {
-      title: 'Web Code Editor',
-      link: 'https://web-code-editor-silk.vercel.app/',
-      github: 'https://github.com/CalicheOrozco/web-code-editor',
-      imgUrl: portafolio21,
+      title: 'Money Tracker',
+      link: 'https://money-tracker-caliche-app.vercel.app/',
+      github: 'https://github.com/CalicheOrozco/money-tracker-caliche-app',
+      imgUrl: portafolio23,
       stack: [
         'React',
         'Vite',
         'HTML/CSS',
         'Javascript',
+        'Node.js',
+        'Express',
+        'MongoDB'
       ]
+    },
+    {
+      title: 'Web Code Editor',
+      link: 'https://web-code-editor-silk.vercel.app/',
+      github: 'https://github.com/CalicheOrozco/web-code-editor',
+      imgUrl: portafolio21,
+      stack: ['React', 'Vite', 'HTML/CSS', 'Javascript']
     },
     {
       title: 'Image to code by Caliche',
