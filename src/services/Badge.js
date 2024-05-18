@@ -28,6 +28,12 @@ export const getBackground = type => {
       return 'bg-teal-600'
     case 'Vite':
       return 'bg-pink-500'
+    case 'MongoDB':
+      return 'bg-green-500'
+    case 'Node.js':
+      return 'bg-green-700'
+    case 'Express':
+      return 'bg-gray-800'
     default:
       return 'bg-blue-500'
   }
