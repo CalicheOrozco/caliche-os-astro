@@ -1,52 +1,189 @@
 ---
 import { Image } from "astro:assets";
-import Chip from "../components/Chip.astro";
-import { getBackground } from "../services/Badge.js";
+import myData from "../../constants/data.js";
 
-import { GithubIcon } from "../images/images.js";
+import { GithubIcon, LaunchIcon } from "../images/images.js";
 
 interface Props {
+  key: number;
   title: string;
   github: string;
   imgUrl: string;
   link: string;
   stack: string[];
+  date: string;
+  description: string;
 }
 
-const { title, github, imgUrl, link, stack } = Astro.props;
+const { key, title, github, imgUrl, link, stack, date, description } =
+  Astro.props;
+
+const isLongDescription = description.length > 250;
+const shortDescription = isLongDescription
+  ? description.slice(0, 250) + "..."
+  : description;
 ---
 
-<div class="relative overflow-hidden rounded-2xl">
-  <div class="block w-full h-full">
-    <a href={link} target="_blank" class="shadow-2xl">
+<div
+  class="flex flex-col overflow-hidden rounded-2xl border border-gray-300 px-4 pt-4 bg-white shadow-md mx-auto"
+>
+  <div class="flex items-start">
+    <a href={myData.socialLinks[0].url} target="_blank">
       <Image
-        src={imgUrl}
-        alt={`${title} portfolio`}
-        width={1080}
-        height={720}
-        class="w-full h-full object-cover lg:hover:animate-pulse lg:hover:animate-infinite lg:hover:animate-duration-1000 lg:hover:animate-ease-linear lg:hover:animate-alternate"
+        src={myData.avatarUrl}
+        alt="Profile picture of Caliche Orozco"
+        width={48}
+        height={48}
+        class="rounded-full"
       />
+    </a>
+    <div class="ml-3 flex-grow">
+      <a
+        class="font-bold text-gray-900"
+        href={myData.socialLinks[0].url}
+        target="_blank"
+      >
+        {myData.name}
+      </a>
+      <p class="text-sm text-gray-600 hidden md:block">
+        {myData.profileDescription}
+      </p>
+      <p class="text-xs flex gap-x-1 text-gray-500">
+        {date} •
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          height="13px"
+          width="13px"
+          xmlns="http://www.w3.org/2000/svg"
+          data-darkreader-inline-fill=""
+          data-darkreader-inline-stroke=""
+          style="--darkreader-inline-fill: currentColor; --darkreader-inline-stroke: currentColor;"
+        >
+          <path
+            d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+          ></path>
+        </svg>
+      </p>
+    </div>
+    <a
+      class="ml-auto text-blue-600 font-semibold text-sm flex items-center"
+      target="_blank"
+      href={myData.socialLinks[0].url}
+    >
+      <svg
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        height="16px"
+        width="16px"
+        xmlns="http://www.w3.org/2000/svg"
+        class="text-blue-600 mr-1"
+      >
+        <path
+          d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+          fill="#1D4ED8"></path>
+      </svg>
+      Follow
     </a>
   </div>
 
-  <div
-    class="absolute bottom-5 z-10 w-full flex justify-center items-center flex-wrap gap-2"
+  <h1 class="font-bold mt-4 text-xl">{title}</h1>
+
+  <p
+    id={`description-${key}`}
+    class="text-gray-800 whitespace-pre-line"
+    data-full={description}
+    data-short={shortDescription}
+    data-expanded="false"
   >
-    {
-      stack.map((item) => {
-        return <Chip background={getBackground(item)}>{item}</Chip>;
-      })
-    }
+    {shortDescription}
+  </p>
+
+  {
+    isLongDescription && (
+      <button
+        id={`toggle-description-${key}`}
+        class="flex text-blue-600 cursor-pointer"
+      >
+        Read more
+      </button>
+    )
+  }
+  <br />
+  <p>
+    <strong>Stack: </strong>
+    {stack.join(", ")}
+  </p>
+
+  <div class="mt-4">
+    <Image
+      src={imgUrl}
+      alt={`${title} portfolio`}
+      width={1080}
+      height={720}
+      class="w-full h-72 rounded-lg"
+    />
   </div>
 
-  <a href={github} target="_blank" class="shadow-2xl">
-    <h1
-      class="absolute top-5 right-2 text-gray-50 font-bold sm:text-lg md:text-2xl bg-green-600 hover:bg-green-800 rounded-lg px-2 flex items-center"
+  <div class="flex justify-between border-gray-200 text-black font-bold">
+    <a
+      class="flex items-center justify-center py-2 gap-x-2 w-1/2"
+      href={link}
+      target="_blank"
     >
-      <div class="flex gap-x-1 py-1">
-        <Image src={GithubIcon} alt="Close window" />
-        {title}
-      </div>
-    </h1>
-  </a>
+      <Image src={LaunchIcon} alt="Launch" />
+      Deployment
+    </a>
+    <a
+      class="flex items-center justify-center py-2 gap-x-2 w-1/2"
+      href={github}
+      target="_blank"
+    >
+      <Image src={GithubIcon} alt="GitHub" />
+      Code
+    </a>
+  </div>
 </div>
+
+<astro:head>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</astro:head>
+
+<astro:body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll("[id^='toggle-description-']");
+      cards.forEach((toggleButton) => {
+        const key = toggleButton.id.split("-")[2];
+        const descriptionElement = document.getElementById(
+          `description-${key}`
+        );
+
+        if (toggleButton && descriptionElement) {
+          toggleButton.addEventListener("click", function () {
+            if (descriptionElement.getAttribute("data-expanded") === "true") {
+              descriptionElement.textContent =
+                descriptionElement.getAttribute("data-short");
+              descriptionElement.setAttribute("data-expanded", "false");
+              toggleButton.textContent = "Read more";
+            } else {
+              descriptionElement.innerHTML = descriptionElement
+                .getAttribute("data-full")
+                .replace(/\n/g, "<br>");
+              descriptionElement.setAttribute("data-expanded", "true");
+              toggleButton.textContent = "Read less";
+            }
+          });
+        }
+      });
+    });
+  </script>
+</astro:body>
