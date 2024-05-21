@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import myData from "../../constants/data.js";
-
 import { GithubIcon, LaunchIcon } from "../images/images.js";
 
 interface Props {
@@ -25,6 +24,7 @@ const shortDescription = isLongDescription
 ---
 
 <div
+  x-data="{ expanded: false }"
   class="flex flex-col overflow-hidden rounded-2xl border border-gray-300 px-4 pt-4 bg-white shadow-md mx-auto"
 >
   <div class="flex items-start">
@@ -93,23 +93,21 @@ const shortDescription = isLongDescription
 
   <h1 class="font-bold mt-4 text-xl">{title}</h1>
 
-  <p
-    id={`description-${key}`}
-    class="text-gray-800 whitespace-pre-line"
-    data-full={description}
-    data-short={shortDescription}
-    data-expanded="false"
-  >
+  <p x-show="!expanded" class="text-gray-800 whitespace-pre-line">
     {shortDescription}
+  </p>
+  <p x-show="expanded" class="text-gray-800 whitespace-pre-line">
+    {description}
   </p>
 
   {
     isLongDescription && (
       <button
-        id={`toggle-description-${key}`}
-        class="flex text-blue-600 cursor-pointer"
+        @click="expanded = !expanded"
+        class="flex text-blue-600 cursor-pointer mt-2"
       >
-        Read more
+        <span x-show="!expanded">Read more</span>
+        <span x-show="expanded">Read less</span>
       </button>
     )
   }
@@ -148,42 +146,3 @@ const shortDescription = isLongDescription
     </a>
   </div>
 </div>
-
-<astro:head>
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
-</astro:head>
-
-<astro:body>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const cards = document.querySelectorAll("[id^='toggle-description-']");
-      cards.forEach((toggleButton) => {
-        const key = toggleButton.id.split("-")[2];
-        const descriptionElement = document.getElementById(
-          `description-${key}`
-        );
-
-        if (toggleButton && descriptionElement) {
-          toggleButton.addEventListener("click", function () {
-            if (descriptionElement.getAttribute("data-expanded") === "true") {
-              descriptionElement.textContent =
-                descriptionElement.getAttribute("data-short");
-              descriptionElement.setAttribute("data-expanded", "false");
-              toggleButton.textContent = "Read more";
-            } else {
-              descriptionElement.innerHTML = descriptionElement
-                .getAttribute("data-full")
-                .replace(/\n/g, "<br>");
-              descriptionElement.setAttribute("data-expanded", "true");
-              toggleButton.textContent = "Read less";
-            }
-          });
-        }
-      });
-    });
-  </script>
-</astro:body>
