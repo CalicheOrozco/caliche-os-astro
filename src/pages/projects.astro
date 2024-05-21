@@ -1,34 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import myData from "../../constants/data.js";
-import { Image } from "astro:assets";   
 import Window from "../components/Window.astro";
 import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
 import Navbar from "../components/Navbar.astro";
-
 ---
 
 <Layout title="Caliche Orozco's Projects">
-    <main class="projectContainer relative">
-      <div class="hidden containerNavbar"> 
-        <Navbar />
-      </div>
-      <div class="windowContainer"> 
-          <Window title="Projects">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
-              {myData.projects.map((proj, key) => (
-                <Card
-                  title={proj.title}
-                  link={proj.link}
-                  imgUrl={proj.imgUrl}
-                  github={proj.github}
-                  stack={proj.stack}
-                  key={key}
-                />
-              ))}
-            </div>
-          </Window>
-      </div>
-      </main>
+  <main class="projectContainer relative">
+    <div class="hidden containerNavbar">
+      <Navbar />
+    </div>
+    <div class="windowContainer">
+      <Window title="Projects">
+        <div
+          class="JobContainer Container flex flex-col gap-y-1 lg:px-96 max-w-full"
+        >
+          {
+            myData.projects.map((proj, key) => (
+              <Card
+                title={proj.title}
+                link={proj.link}
+                imgUrl={proj.imgUrl}
+                description={proj.description}
+                date={proj.date}
+                github={proj.github}
+                stack={proj.stack}
+                key={key}
+              />
+            ))
+          }
+        </div>
+      </Window>
+    </div>
+  </main>
 </Layout>
