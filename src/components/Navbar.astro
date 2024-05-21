@@ -3,14 +3,23 @@ import myData from "../../constants/data.js";
 import { Image } from "astro:assets";
 ---
 
-<nav class={`navbar min-h-screen flex justify-center items-center lg:justify-start `}>
-  <ul class="flex flex-col gap-4 lg:p-10">
+<nav
+  class={`navbar min-h-screen flex justify-center items-center lg:justify-start `}
+>
+  <ul class="flex flex-col gap-4 text-white lg:p-10">
     {
       myData.navmenu.map((item, index) => (
         <li>
           <a href={item.url} class="nav-link">
             <div class={`flex flex-col items-center p-2 rounded-md`}>
-              <Image src={item.icon} alt={item.name} width={50} height={50} decoding="async" loading="lazy" />
+              <Image
+                src={item.icon}
+                alt={item.name}
+                width={50}
+                height={50}
+                decoding="async"
+                loading="lazy"
+              />
               <span>{item.name}</span>
             </div>
           </a>
@@ -25,8 +34,8 @@ import { Image } from "astro:assets";
         const mainWindow = document.querySelector(".main-window");
         const windowContainer = document.querySelector(".windowContainer");
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.addEventListener('click', function() { 
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", function () {
             let url = new URL(this.href);
             if (url.pathname === path) {
               navbar.classList.add("hidden");
@@ -39,12 +48,9 @@ import { Image } from "astro:assets";
               windowContainer.classList.remove("hidden");
               windowContainer.classList.remove("flex");
               windowContainer.classList.remove("justify-center");
-              
-              
             }
           });
         });
-
       }, 0);
     </script>
   </ul>
