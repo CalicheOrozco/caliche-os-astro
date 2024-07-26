@@ -29,6 +29,7 @@ import {
   portafolio21,
   portafolio22,
   portafolio23,
+  portafolio24,
   HTML,
   CSS,
   Javascript,
@@ -96,6 +97,36 @@ const myData = {
     }
   ],
   projects: [
+    {
+      title: 'Calichef',
+      link: 'https://calichef.netlify.app/',
+      github: 'https://github.com/CalicheOrozco/calichef',
+      imgUrl: portafolio24,
+      date: 'Jul 12, 2024',
+      description: `A few weeks ago, I decided to invest in a Thermomix. More than an expense, I see it as an investment 💰 because it saves me a lot of time in the kitchen ⏳. I am thrilled with how easy it is to use and with its app 📲, which has an extensive recipe catalog 🍲.
+
+      However, like many current apps, it has a subscription-based payment model that I don’t find suitable for this type of product 💸. Maybe I’m a bit old school 🧓, but I miss the days when you bought an app, and it was yours forever 📱. I don’t think it’s necessary to pay a subscription for something very similar to a cookbook 📖 and that doesn’t require frequent updates.
+
+      💡 That’s why I decided to take action and create my own website, which I turned into a PWA (Progressive Web Application) to install on my devices. That’s how Calichef 👨‍🍳 was born, where I used my web development knowledge to create a recipe listing focused on the Thermomix.
+
+      The project is developed with React and Tailwind 💻, two libraries I have been working with for several years. I love everything I can achieve with web development, things I never would have even thought of 🤯.
+
+      The app is fully responsive 📱💻, perfectly adapting to any device. The recipe details are so well organized that it’s very easy to have my tablet next to me consulting Calichef while cooking with the Thermomix 🥘. Additionally, it allows you to add recipes to favorites and save them locally, so you always have the ones that catch your eye at hand. It also has an advanced search with filters by country, language, difficulty, and stars, making it easy to find the exact recipe you want.
+
+      I am very satisfied with the result and would love for you to see it 🤩.
+
+      🔍 What do you think? I’d love to receive your comments and feedback. Don’t hesitate to share your thoughts! 👇
+    `,
+      stack: [
+        'React',
+        'Next.js',
+        'HTML/CSS',
+        'Javascript',
+        'Tailwind',
+        'PWA',
+        'IDB'
+      ]
+    },
     {
       title: 'Money Tracker',
       link: 'https://money-tracker-caliche-app.vercel.app/',
