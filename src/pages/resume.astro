@@ -2,28 +2,30 @@
 import Layout from "../layouts/Layout.astro";
 import Window from "../components/Window.astro";
 import Navbar from "../components/Navbar.astro";
-
 ---
 
 <Layout title="Caliche Orozco's Projects">
-    <main class="resumeContainer relative">
-        <div class="hidden containerNavbar"> 
-            <Navbar />
-          </div>
-          <div class="windowContainer"> 
-            <Window title="Resume" noPadding={true} backgroundColor="bg-[#2a2a2e]">
-                <a class="text-white text-2xl flex justify-center font-bold lg:hidden " href="/CVCaliche.pdf" download>Descargar PDF</a>
-                <div class="">
-                    <object
-                        data="/CVCaliche.pdf"
-                        type="application/pdf"
-                        class="min-h-[calc(100vh-2.5rem)]"
-                        style={{ height: '100%', width: '100%' }}
-                        width="100%"
-                        height="auto"
-                    />
-                </div>
-            </Window>
+  <main class="resumeContainer relative">
+    <div class="hidden containerNavbar">
+      <Navbar />
+    </div>
+    <div class="windowContainer">
+      <Window title="Resume" noPadding={true} backgroundColor="bg-[#2a2a2e]">
+        <a
+          class="text-white text-2xl flex justify-center font-bold lg:hidden"
+          href="/CVCaliche.pdf"
+          download>Download PDF</a
+        >
+        <div class="">
+          <object
+            data="/CVCaliche.pdf"
+            type="application/pdf"
+            class="min-h-[calc(100vh-2.5rem)]"
+            style={{ height: "100%", width: "100%" }}
+            width="100%"
+            height="auto"></object>
         </div>
-    </main>
+      </Window>
+    </div>
+  </main>
 </Layout>
