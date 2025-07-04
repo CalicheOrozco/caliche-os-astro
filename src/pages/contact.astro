@@ -10,18 +10,19 @@ import Navbar from "../components/Navbar.astro";
 
 <Layout title="Caliche Orozco's Contact">
     <main class="contactContainer relative">
-      <div class="hidden containerNavbar"> 
+      <div class="containerNavbar"> 
         <Navbar />
       </div>
       <div class="windowContainer"> 
         <Window title="Contact">
-        <WindowSection title={"Social Media"}>
+        <WindowSection title={"Social Media"} >
+          <ul class="flex flex-wrap justify-center gap-4 px-4">
               {
                 myData.socialLinks.map((item, key) => (
                   <li key={`Contact-${key}`}>
                 <a href={item.url} target="_blank">
                 <div 
-                  className={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
+                  className={`flex flex-col items-center p-2 mb-4 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
                 >
                   <Image
                     src={item.icon}
@@ -35,6 +36,7 @@ import Navbar from "../components/Navbar.astro";
               </li>
                 ))
               }
+          </ul>
             </WindowSection>
         </Window>
       </div>
