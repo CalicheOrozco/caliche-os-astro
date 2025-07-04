@@ -8,10 +8,13 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
 ---
 
 <div
-  class={`main-window flex flex-col rounded-t-lg shadow-lg m-0 min-h-screen`}
+  class={`main-window flex flex-col rounded-t-lg shadow-lg m-0`}
+  id="draggable-window"
+  style="position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; transform: none; z-index: 50; min-width: 350px; max-width: none; max-height: none; box-sizing: border-box; border-radius: 0; box-shadow: none;"
 >
   <div
-    class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg ps-3"
+    class="window-title-bar flex items-center justify-between bg-blue-800 rounded-t-lg ps-3 cursor-move select-none"
+    id="window-title-bar"
   >
     <div class="window-title text-white font-bold">{title}</div>
     <div
@@ -55,101 +58,193 @@ import { closeIcon, MaximizeIcon, MinimizeIcon } from "../images/images.js";
 
       <script type="module">
         setTimeout(() => {
-          let isMaximized = false;
-          const navbar = document.querySelector(".navbar");
-          const containerNavbar = document.querySelector(".containerNavbar");
-          const mainWindow = document.querySelector(".main-window");
-          const windowContainer = document.querySelector(".windowContainer");
-          const JobContainer = document.querySelector(".JobContainer");
+          // Guarda los estilos pequeños originales
+          const windowEl = document.getElementById("draggable-window");
+          windowEl.style.left = "50%";
+          windowEl.style.top = "50%";
+          windowEl.style.width = "700px";
+          windowEl.style.height = "";
+          windowEl.style.transform = "translate(-50%, -50%)";
+          windowEl.style.borderRadius = "";
+          windowEl.style.boxShadow = "";
+          windowEl.style.maxWidth = "95vw";
+          windowEl.style.maxHeight = "90vh";
+          const smallWindowStyles = {
+            left: windowEl.style.left,
+            top: windowEl.style.top,
+            width: windowEl.style.width,
+            height: windowEl.style.height,
+            transform: windowEl.style.transform,
+          };
+          // Ahora maximiza
+          windowEl.style.left = "0";
+          windowEl.style.top = "0";
+          windowEl.style.width = "100vw";
+          windowEl.style.height = "100vh";
+          windowEl.style.transform = "none";
+          windowEl.style.borderRadius = "0";
+          windowEl.style.boxShadow = "none";
+          windowEl.style.maxWidth = "none";
+          windowEl.style.maxHeight = "none";
+          const content = windowEl.querySelector('.window-content');
+          if(content) {
+            content.style.width = '100vw';
+            content.style.height = 'calc(100vh - 2.5rem)';
+            content.style.maxWidth = '100vw';
+            content.style.maxHeight = 'calc(100vh - 2.5rem)';
+            content.style.padding = '0';
+          }
+          // Guarda los estilos iniciales (maximizado)
+          const initialStyles = {
+            left: windowEl.style.left,
+            top: windowEl.style.top,
+            width: windowEl.style.width,
+            height: windowEl.style.height,
+            transform: windowEl.style.transform,
+          };
+          let isMaximized = true;
+          let prevStyles = {};
+
+          // --- DRAGGABLE LOGIC ---
+          const titleBar = document.getElementById("window-title-bar");
+          let isDragging = false;
+          let offsetX = 0;
+          let offsetY = 0;
+
+          // Solo permite drag si no está maximizado
+          titleBar.addEventListener("mousedown", (e) => {
+            if (isMaximized) return;
+            isDragging = true;
+            const rect = windowEl.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+            windowEl.style.transition = "none";
+            document.body.style.userSelect = "none";
+            // Fija el ancho y alto actuales en píxeles y elimina max-width/max-height
+            windowEl.style.width = rect.width + "px";
+            windowEl.style.height = rect.height + "px";
+            windowEl.style.maxWidth = "none";
+            windowEl.style.maxHeight = "none";
+          });
+
+          document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            // Calcula nueva posición
+            let left = e.clientX - offsetX;
+            let top = e.clientY - offsetY;
+            // Limita para que la barra de título siempre quede visible
+            const winW = window.innerWidth;
+            const winH = window.innerHeight;
+            const elW = windowEl.offsetWidth;
+            const elH = windowEl.offsetHeight;
+            const titleBarHeight = 40; // px, ajusta si tu barra es más alta
+            left = Math.max(-(elW - 40), Math.min(left, winW - 40));
+            // Solo permite subir hasta el borde superior (0px)
+            top = Math.max(0, Math.min(top, winH - titleBarHeight));
+            windowEl.style.left = left + "px";
+            windowEl.style.top = top + "px";
+            windowEl.style.transform = "none";
+          });
+
+          document.addEventListener("mouseup", () => {
+            isDragging = false;
+            windowEl.style.transition = "box-shadow 0.2s";
+            document.body.style.userSelect = "";
+            // Guarda la posición y tamaño actuales para restaurar correctamente después de maximizar
+            savePrevStyles();
+          });
+
+          function savePrevStyles() {
+            const computed = getComputedStyle(windowEl);
+            prevStyles = {
+              left: windowEl.style.left || computed.left,
+              top: windowEl.style.top || computed.top,
+              width: windowEl.style.width || computed.width,
+              height: windowEl.style.height || computed.height,
+              transform: windowEl.style.transform || computed.transform,
+              borderRadius: windowEl.style.borderRadius || computed.borderRadius,
+              boxShadow: windowEl.style.boxShadow || computed.boxShadow,
+              maxWidth: windowEl.style.maxWidth || computed.maxWidth,
+              maxHeight: windowEl.style.maxHeight || computed.maxHeight,
+            };
+          }
+          function restorePrevStyles() {
+            windowEl.style.height = "auto";
+            windowEl.style.maxHeight = "90vh";
+            windowEl.style.left = smallWindowStyles.left;
+            windowEl.style.top = smallWindowStyles.top;
+            windowEl.style.transform = smallWindowStyles.transform;
+            windowEl.style.width = smallWindowStyles.width;
+            // No restaures el alto inicial, deja que sea auto
+            // windowEl.style.height = smallWindowStyles.height;
+            // Fuerza el alto del contenido interno a auto
+            const content = windowEl.querySelector('.window-content');
+            if (content) content.style.height = "auto";
+            const jobContainer = windowEl.querySelector('.JobContainer');
+            if (jobContainer) jobContainer.style.height = "auto";
+          }
+
           const maximizeButton = document.getElementById("maximize-button");
           const closeButton = document.getElementById("close-button");
           const restoreButton = document.getElementById("restore-button");
-
-          const containers = [
-            ".projectContainer",
-            ".skillsContainer",
-            ".experienceContainer",
-            ".aboutContainer",
-            ".contactContainer",
-            ".resumeContainer",
-          ].map((selector) => document.querySelector(selector));
-
-          const commonClasses = [
-            "flex",
-            "flex-row",
-            "h-full",
-            "w-full",
-            "justify-start",
-            "items-center",
-          ];
-
-          const addOrRemoveClasses = (element, action, classes) => {
-            if (!element) return;
-            classes.forEach((cls) => element.classList[action](cls));
-          };
-
-          navbar.classList.add("hidden");
 
           maximizeButton.addEventListener("click", () => {
             if (window.innerWidth < 1024) return;
 
             if (!isMaximized) {
-              mainWindow.classList.remove("min-h-screen");
-              mainWindow.classList.add("h-[90vh]", "w-[80%]", "pb-3");
-              JobContainer.classList.remove("lg:px-96");
-              JobContainer.classList.add("lg:px-40");
-
-              navbar.classList.remove("hidden");
-              containerNavbar.classList.remove("hidden");
-
-              containers.forEach((container) =>
-                addOrRemoveClasses(container, "add", commonClasses)
-              );
-              addOrRemoveClasses(windowContainer, "add", [
-                "w-full",
-                "flex",
-                "justify-center",
-              ]);
-
-              if (containers[2]) {
-                containers[2].classList.add("testnanana");
+              // Siempre guarda el estado actual antes de maximizar
+              savePrevStyles();
+              // Maximizar: ocupa toda la pantalla
+              windowEl.style.left = "0";
+              windowEl.style.top = "0";
+              windowEl.style.width = "100vw";
+              windowEl.style.height = "100vh";
+              windowEl.style.transform = "none";
+              windowEl.style.borderRadius = "0";
+              windowEl.style.boxShadow = "none";
+              windowEl.style.maxWidth = "none";
+              windowEl.style.maxHeight = "none";
+              // Ajusta el contenido interno
+              const content = windowEl.querySelector('.window-content');
+              if(content) {
+                content.style.width = '100vw';
+                content.style.height = 'calc(100vh - 2.5rem)';
+                content.style.maxHeight = 'none';
+                content.style.minHeight = '0';
               }
             } else {
-              mainWindow.classList.add("min-h-screen");
-              mainWindow.classList.remove("h-[90vh]", "w-[80%]", "pb-3");
-              JobContainer.classList.add("lg:px-96");
-              JobContainer.classList.remove("lg:px-40");
-
-              navbar.classList.add("hidden");
-              containerNavbar.classList.add("hidden");
-
-              containers.forEach((container) =>
-                addOrRemoveClasses(container, "remove", commonClasses)
-              );
-              addOrRemoveClasses(windowContainer, "remove", [
-                "w-full",
-                "flex",
-                "justify-center",
-              ]);
+              restorePrevStyles();
+              // Restaura el contenido interno
+              const content = windowEl.querySelector('.window-content');
+              if(content) {
+                content.style.width = '';
+                content.style.height = '';
+                content.style.maxHeight = '';
+                content.style.minHeight = '';
+              }
             }
 
             isMaximized = !isMaximized;
           });
 
           const closeOrRestore = () => {
-            navbar.classList.remove("hidden");
-            containerNavbar.classList.remove("hidden");
-            mainWindow.classList.add("hidden");
+            windowEl.classList.add("hidden");
           };
 
           closeButton.addEventListener("click", closeOrRestore);
           restoreButton.addEventListener("click", closeOrRestore);
+
+          // Maximizar/restaurar con doble click en la barra de título
+          titleBar.addEventListener("dblclick", () => {
+            maximizeButton.click();
+          });
         }, 0);
       </script>
     </div>
   </div>
   <div
-    class={`window-content flex-grow overflow-auto text-black ${noPadding ? "" : "p-4"}  ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}
+    class={`window-content overflow-auto text-black  ${noPadding ? "" : "p-4"}  ${backgroundColor ? `${backgroundColor}` : "bg-white"}`}
+    style="max-height: 70vh; min-height: 100px; overflow-y: auto;"
   >
     <slot />
   </div>
