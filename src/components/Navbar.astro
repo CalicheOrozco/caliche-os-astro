@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
       myData.navmenu.map((item, index) => (
         <li>
           <a href={item.url} class="nav-link">
-            <div class={`flex flex-col items-center p-2 rounded-md`}>
+            <div class={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white` }>
               <Image
                 src={item.icon}
                 alt={item.name}
@@ -28,26 +28,11 @@ import { Image } from "astro:assets";
     }
     <script type="module">
       setTimeout(() => {
-        const path = window.location.pathname;
-        const navbar = document.querySelector(".navbar");
-        const containerNavbar = document.querySelector(".containerNavbar");
-        const mainWindow = document.querySelector(".main-window");
-        const windowContainer = document.querySelector(".windowContainer");
-
-        document.querySelectorAll(".nav-link").forEach((link) => {
-          link.addEventListener("click", function () {
-            let url = new URL(this.href);
-            if (url.pathname === path) {
-              navbar.classList.add("hidden");
-              containerNavbar.classList.add("hidden");
-              mainWindow.classList.remove("hidden");
-              mainWindow.classList.remove("h-[90vh]");
-              mainWindow.classList.remove("w-[80%]");
-              mainWindow.classList.remove("pb-3");
-              mainWindow.classList.add("min-h-screen");
-              windowContainer.classList.remove("hidden");
-              windowContainer.classList.remove("flex");
-              windowContainer.classList.remove("justify-center");
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            const win = document.getElementById('draggable-window');
+            if (win && win.classList.contains('hidden')) {
+              win.classList.remove('hidden');
             }
           });
         });
