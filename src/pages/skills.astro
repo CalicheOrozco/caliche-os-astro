@@ -21,6 +21,7 @@ import Navbar from "../components/Navbar.astro";
               {myData.skills.description}
             </p>
             <WindowSection title={"Programming Languages"}>
+              <ul class="flex flex-wrap gap-2 mx-4">
               {
                 myData.skills.languages.map((language, index) => (
                   <li key={`item-language-${index}`} >
@@ -38,8 +39,10 @@ import Navbar from "../components/Navbar.astro";
               </li>
                 ))
               }
+              </ul>
             </WindowSection>
             <WindowSection title={"Libraries"}>
+              <ul class="flex flex-wrap gap-2 mx-4">
               {
                 myData.skills.libraries.map((librery, index ) => (
                   <li key={`item-library-${index}`} >
@@ -57,8 +60,10 @@ import Navbar from "../components/Navbar.astro";
               </li>
                 ))
               }
+              </ul>
             </WindowSection>
             <WindowSection title={"Frameworks"}>
+              <ul class="flex flex-wrap gap-2 mx-4 pb-4">
               {
                 myData.skills.frameworks.map((item, index) => (
                   <li key={`item-${index}`} >
@@ -76,6 +81,7 @@ import Navbar from "../components/Navbar.astro";
               </li>
                 ))
               }
+              </ul>
             </WindowSection>
           </Window>
       </div>
