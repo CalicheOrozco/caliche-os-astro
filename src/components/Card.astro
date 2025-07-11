@@ -34,7 +34,7 @@ const shortDescription = isLongDescription
         alt="Profile picture of Caliche Orozco"
         width={48}
         height={48}
-        class="rounded-full"
+        class="rounded-full w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px]"
       />
     </a>
     <div class="ml-3 flex-grow">
@@ -68,11 +68,12 @@ const shortDescription = isLongDescription
         </svg>
       </p>
     </div>
-    <a
-      class="ml-auto text-blue-600 font-semibold text-sm flex items-center"
-      target="_blank"
-      href={myData.socialLinks[0].url}
-    >
+    <div class="text-blue-600 hover:text-blue-300">
+      <a
+        class="ml-auto font-semibold text-sm flex items-center"
+        target="_blank"
+        href={myData.socialLinks[0].url}
+      >
       <svg
         stroke="currentColor"
         fill="currentColor"
@@ -81,14 +82,16 @@ const shortDescription = isLongDescription
         height="16px"
         width="16px"
         xmlns="http://www.w3.org/2000/svg"
-        class="text-blue-600 mr-1"
+        class="mr-0.5"
+       
       >
         <path
           d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-          fill="#1D4ED8"></path>
+          ></path>
       </svg>
       Follow
     </a>
+    </div>
   </div>
 
   <h1 class="font-bold mt-4 text-xl">{title}</h1>
@@ -127,9 +130,9 @@ const shortDescription = isLongDescription
     />
   </div>
 
-  <div class="flex justify-between border-gray-200 text-black font-bold">
+  <div class="flex justify-between border-gray-200 text-black  font-bold">
     <a
-      class="flex items-center justify-center py-2 gap-x-2 w-1/2"
+      class="flex items-center justify-center py-2 gap-x-2 w-1/2 hover:text-gray-400"
       href={link}
       target="_blank"
     >
@@ -137,7 +140,7 @@ const shortDescription = isLongDescription
       Deployment
     </a>
     <a
-      class="flex items-center justify-center py-2 gap-x-2 w-1/2"
+      class="flex items-center justify-center py-2 gap-x-2 w-1/2 hover:text-gray-400"
       href={github}
       target="_blank"
     >

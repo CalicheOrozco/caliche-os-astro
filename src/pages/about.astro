@@ -23,7 +23,9 @@ const name = "Caliche Orozco";
       </div>
       <div class="windowContainer"> 
           <Window title="About">
-          <WikipediaProfile name={name} imageSrc={Avatar} description={description} role={myData.designation} currentJob={myData.about.currentCompany} currentProject={myData.about.currentProject} education={myData.about.education} languages={myData.about.languages} />
+            <div class="flex flex-col md:flex-row md:items-start gap-8">
+              <WikipediaProfile name={name} imageSrc={Avatar} description={description} role={myData.designation} currentJob={myData.about.currentCompany} currentProject={myData.about.currentProject} education={myData.about.education} languages={myData.about.languages} />
+            </div>
           </Window>
       </div>
       </main>
