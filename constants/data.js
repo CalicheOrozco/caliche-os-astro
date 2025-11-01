@@ -302,7 +302,7 @@ const myData = {
     },
     {
       title: 'English Certify by Caliche',
-      link: 'https://www.englishcertify.com/',
+      link: 'https://englishcertify.vercel.app',
       github: 'https://github.com/CalicheOrozco/duolingo-test-practice-caliche',
       date: 'Feb 01, 2023',
       imgUrl: portafolio13,
