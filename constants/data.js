@@ -30,6 +30,7 @@ import {
   portafolio22,
   portafolio23,
   portafolio24,
+  portafolio25,
   HTML,
   CSS,
   Javascript,
@@ -97,6 +98,32 @@ const myData = {
     }
   ],
   projects: [
+  {
+    title: 'Caliche Cards',
+    link: 'https://caliche-cards.vercel.app/',
+    github: 'https://github.com/CalicheOrozco/caliche-cards',
+    imgUrl: portafolio25,
+    date: 'Feb 24, 2026',
+    description: `I built Caliche Cards because I love Anki’s learning method, but my workflow had two big limitations.
+
+  First: on iOS I couldn’t use Anki the way I wanted (without depending on a specific paid app or being tied to one device). Second: in Anki Web I couldn’t use the add-on I rely on that simplifies the review experience by reducing the answer options to two clear buttons: “Fail” and “Pass”. That add-on only works on the desktop version, so my study flow wasn’t consistent across devices.
+
+  💡 So I decided to create my own Anki-compatible PWA (Progressive Web App): Caliche Cards. It’s an offline-first flashcards app where I can import my decks (from .apkg), study anywhere, and keep the same simple “Fail / Pass” review buttons on any device—phone, tablet, or desktop.
+
+  The app is responsive, installable, and designed for fast daily reviews. It stores everything locally (so it works even without internet), and also supports cloud sync so your progress and decks can follow you across devices.
+
+  If you’ve ever wanted an Anki-like workflow that feels the same everywhere (especially on iOS), this project was built exactly for that.`,
+    stack: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind',
+      'PWA',
+      'IndexedDB',
+      'Dexie',
+      'MongoDB Atlas'
+    ]
+  },
     {
       title: 'Calichef',
       link: 'https://calichef.netlify.app/',
