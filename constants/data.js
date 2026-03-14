@@ -1,4 +1,3 @@
-import { date } from 'astro/zod'
 import {
   projects,
   skills,

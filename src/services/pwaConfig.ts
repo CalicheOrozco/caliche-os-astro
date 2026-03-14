@@ -34,6 +34,6 @@ export const seoConfig = {
   },
   siteName: "Caliche Orozco Portfolio", // Change this to your website's name,
   twitter: {
-    card: "summary_large_image",
+    card: "summary_large_image" as const,
   },
 };

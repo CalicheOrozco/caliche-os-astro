@@ -10,18 +10,16 @@ import { Image } from "astro:assets";
     {
       myData.navmenu.map((item, index) => (
         <li>
-          <a href={item.url} class="nav-link">
-            <div class={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white` }>
-              <Image
-                src={item.icon}
-                alt={item.name}
-                width={50}
-                height={50}
-                decoding="async"
-                loading="lazy"
-              />
-              <span>{item.name}</span>
-            </div>
+          <a href={item.url} class="nav-link ui-icon-tile">
+            <Image
+              src={item.icon}
+              alt={item.name}
+              width={50}
+              height={50}
+              decoding="async"
+              loading="lazy"
+            />
+            <span>{item.name}</span>
           </a>
         </li>
       ))

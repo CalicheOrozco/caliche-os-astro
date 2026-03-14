@@ -6,6 +6,15 @@ import Window from "../components/Window.astro";
 import WindowSection from "../components/WindowSection.astro";
 import Navbar from "../components/Navbar.astro";
 
+import type { ImageMetadata } from "astro";
+
+const isImageMetadata = (src: unknown): src is ImageMetadata =>
+  typeof src === "object" &&
+  src !== null &&
+  "src" in src &&
+  "width" in src &&
+  "height" in src;
+
 ---
 
 <Layout title="Caliche Orozco's Contact">
@@ -19,17 +28,16 @@ import Navbar from "../components/Navbar.astro";
           <ul class="flex flex-wrap justify-center gap-4 px-4">
               {
                 myData.socialLinks.map((item, key) => (
-                  <li key={`Contact-${key}`}>
+                  <li>
                 <a href={item.url} target="_blank">
                 <div 
-                  className={`flex flex-col items-center p-2 mb-4 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
+                  class="ui-icon-tile mb-4"
                 >
-                  <Image
-                    src={item.icon}
-                    alt={item.name}
-                    width={50}
-                    height={50}
-                  />
+                  {isImageMetadata(item.icon) ? (
+                    <Image src={item.icon} alt={item.name} width={50} height={50} />
+                  ) : (
+                    <Image src={String(item.icon)} alt={item.name} width={50} height={50} />
+                  )}
                   <span>{item.name}</span>
                 </div>
                 </a>

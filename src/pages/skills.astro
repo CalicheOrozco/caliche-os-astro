@@ -24,10 +24,8 @@ import Navbar from "../components/Navbar.astro";
               <ul class="flex flex-wrap gap-2 mx-4">
               {
                 myData.skills.languages.map((language, index) => (
-                  <li key={`item-language-${index}`} >
-                <div
-                  class={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
-                >
+                  <li>
+                <div class="ui-icon-tile">
                   <Image 
                     src={language.icon}
                     alt={language.name}
@@ -45,10 +43,8 @@ import Navbar from "../components/Navbar.astro";
               <ul class="flex flex-wrap gap-2 mx-4">
               {
                 myData.skills.libraries.map((librery, index ) => (
-                  <li key={`item-library-${index}`} >
-                <div
-                  class={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
-                >
+                  <li>
+                <div class="ui-icon-tile">
                   <Image 
                     src={librery.icon}
                     alt={librery.name}
@@ -66,10 +62,8 @@ import Navbar from "../components/Navbar.astro";
               <ul class="flex flex-wrap gap-2 mx-4 pb-4">
               {
                 myData.skills.frameworks.map((item, index) => (
-                  <li key={`item-${index}`} >
-                <div
-                  class={`flex flex-col items-center p-2 rounded-md lg:hover:bg-[#010081] lg:hover:text-white`}
-                >
+                  <li>
+                <div class="ui-icon-tile">
                   <Image
                     src={item.icon}
                     alt={item.name}

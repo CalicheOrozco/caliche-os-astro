@@ -25,31 +25,32 @@ const shortDescription = isLongDescription
 
 <div
   x-data="{ expanded: false }"
-  class="flex flex-col overflow-hidden rounded-2xl border border-gray-300 px-4 pt-4 bg-white shadow-md mx-auto"
+  class="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow px-4 pt-4 mx-auto w-full max-w-4xl"
 >
-  <div class="flex items-start">
-    <a href={myData.socialLinks[0].url} target="_blank">
-      <Image
-        src={myData.avatarUrl}
-        alt="Profile picture of Caliche Orozco"
-        width={48}
-        height={48}
-        class="rounded-full w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px]"
-      />
-    </a>
-    <div class="ml-3 flex-grow">
-      <a
-        class="font-bold text-gray-900"
-        href={myData.socialLinks[0].url}
-        target="_blank"
-      >
-        {myData.name}
+  <div class="flex-1">
+    <div class="flex items-start">
+      <a href={myData.socialLinks[0].url} target="_blank">
+        <Image
+          src={myData.avatarUrl}
+          alt="Profile picture of Caliche Orozco"
+          width={48}
+          height={48}
+          class="rounded-full w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px]"
+        />
       </a>
-      <p class="text-sm text-gray-600 hidden md:block">
-        {myData.profileDescription}
-      </p>
-      <p class="text-xs flex gap-x-1 text-gray-500">
-        {date} •
+      <div class="ml-3 flex-grow">
+        <a
+          class="font-bold text-gray-900"
+          href={myData.socialLinks[0].url}
+          target="_blank"
+        >
+          {myData.name}
+        </a>
+        <p class="text-sm text-gray-600 hidden md:block">
+          {myData.profileDescription}
+        </p>
+        <p class="text-xs flex gap-x-1 text-gray-500">
+          {date} •
         <svg
           stroke="currentColor"
           fill="currentColor"
@@ -66,14 +67,14 @@ const shortDescription = isLongDescription
             d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
           ></path>
         </svg>
-      </p>
-    </div>
-    <div class="text-blue-600 hover:text-blue-300">
-      <a
-        class="ml-auto font-semibold text-sm flex items-center"
-        target="_blank"
-        href={myData.socialLinks[0].url}
-      >
+        </p>
+      </div>
+      <div class="text-blue-700 hover:text-blue-500 transition-colors">
+        <a
+          class="ml-auto font-semibold text-sm flex items-center"
+          target="_blank"
+          href={myData.socialLinks[0].url}
+        >
       <svg
         stroke="currentColor"
         fill="currentColor"
@@ -94,12 +95,15 @@ const shortDescription = isLongDescription
     </div>
   </div>
 
-  <h1 class="font-bold mt-4 text-xl">{title}</h1>
+  <h1 class="font-bold mt-4 text-xl text-slate-900 leading-snug">{title}</h1>
 
-  <p x-show="!expanded" class="text-gray-800 whitespace-pre-line">
+  <p
+    x-show="!expanded"
+    class="text-slate-800 whitespace-pre-line leading-relaxed min-h-[5.5rem] [display:-webkit-box] [-webkit-line-clamp:4] [-webkit-box-orient:vertical] overflow-hidden"
+  >
     {shortDescription}
   </p>
-  <p x-show="expanded" class="text-gray-800 whitespace-pre-line">
+  <p x-show="expanded" class="text-slate-800 whitespace-pre-line leading-relaxed">
     {description}
   </p>
 
@@ -107,7 +111,7 @@ const shortDescription = isLongDescription
     isLongDescription && (
       <button
         @click="expanded = !expanded"
-        class="flex text-blue-600 cursor-pointer mt-2"
+        class="inline-flex text-blue-700 hover:text-blue-500 transition-colors cursor-pointer mt-2 font-semibold"
       >
         <span x-show="!expanded">Read more</span>
         <span x-show="expanded">Read less</span>
@@ -115,7 +119,7 @@ const shortDescription = isLongDescription
     )
   }
   <br />
-  <p>
+  <p class="text-sm text-slate-900">
     <strong>Stack: </strong>
     {stack.join(", ")}
   </p>
@@ -126,13 +130,14 @@ const shortDescription = isLongDescription
       alt={`${title} portfolio`}
       width={1080}
       height={720}
-      class="w-full h-72 rounded-lg"
+      class="w-full h-auto rounded-xl border border-slate-200"
     />
   </div>
+  </div>
 
-  <div class="flex justify-between border-gray-200 text-black  font-bold">
+  <div class="flex justify-between border-t border-slate-200 divide-x divide-slate-200 text-black font-bold mt-4">
     <a
-      class="flex items-center justify-center py-2 gap-x-2 w-1/2 hover:text-gray-400"
+      class="flex items-center justify-center py-3 gap-x-2 w-1/2 hover:text-slate-500 transition-colors"
       href={link}
       target="_blank"
     >
@@ -140,7 +145,7 @@ const shortDescription = isLongDescription
       Deployment
     </a>
     <a
-      class="flex items-center justify-center py-2 gap-x-2 w-1/2 hover:text-gray-400"
+      class="flex items-center justify-center py-3 gap-x-2 w-1/2 hover:text-slate-500 transition-colors"
       href={github}
       target="_blank"
     >
