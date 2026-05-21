@@ -30,6 +30,8 @@ import {
   portafolio23,
   portafolio24,
   portafolio25,
+  portafolio26,
+  portafolio27,
   HTML,
   CSS,
   Javascript,
@@ -97,6 +99,65 @@ const myData = {
     }
   ],
   projects: [
+  {
+    title: 'What Should I Watch?',
+    link: 'https://caliche-movies.vercel.app/',
+    github: 'https://github.com/CalicheOrozco/caliche-movies',
+    imgUrl: portafolio26,
+    date: 'May 20, 2026',
+    description: `This one came straight from a personal frustration I've had for years. Every time I sat down to watch something, I'd spend 20 or 30 minutes scrolling through Netflix, Prime, or whatever platform, couldn't decide on anything, and ended up just closing the app and doing something else. It happened constantly, and it was genuinely annoying.
+
+    💡 So I decided to build my own solution: a PWA that asks you a few simple questions about your mood, genre preference, era, and who you're watching with, then just picks something for you using the TMDB API. No endless browsing, no decision paralysis. You answer (or skip) the questions and the app does the rest.
+
+    As I kept using it I kept adding things I personally needed. I added a search bar so I could also look up a specific title and see where it's streaming. I added streaming provider lookup by country because I always wanted to know which platform actually had a movie before getting excited about it. I added swipe gestures because it felt natural on mobile. I added a watch history so I could remember what I'd already seen. I added a "jump to filter" shortcut because sometimes I only care about one thing, like watching something in Korean, and didn't want to step through every question to get there.
+
+    🌍 The app is fully bilingual in English and Spanish, including the synopses pulled from TMDB. It's also installable as a PWA, so I have it on my phone home screen and use it regularly.
+
+    It's one of those projects I built entirely for myself, and it turned out to be one of the ones I use the most.`,
+    stack: [
+      'React',
+      'Vite',
+      'Tailwind',
+      'PWA',
+      'TMDB API'
+    ]
+  },
+  {
+    title: 'Caliche Scrabble',
+    link: 'https://caliche-scrabble.vercel.app',
+    github: 'https://github.com/CalicheOrozco/Caliche-Scrabble',
+    imgUrl: portafolio26,
+    date: 'Apr 16, 2026',
+    description: `I've always loved Scrabble, but I realized that loving a game
+  and being good at it are two different things. The real skill gap for me was
+  anagram recognition: seeing a rack of 7 random tiles and instantly spotting
+  every word hidden inside them. No app I found felt right for serious practice,
+  so I built my own.
+
+  💡 Caliche Scrabble is a full Scrabble training platform. The core is an
+  anagram trainer: you draw random tiles from a real Scrabble bag and your goal
+  is to find every valid word you can form with them. Under the hood, a Web
+  Worker loads both English and Spanish dictionaries (~800,000 words total) on
+  a separate thread, encodes each word as a letter-count vector, and checks the
+  entire dataset against your current hand in ~20ms without ever blocking the UI.
+
+  🧠 But I didn't stop at anagrams. To win at Scrabble you also need a sharp
+  mind: fast pattern recognition, working memory, and mental focus. So I built
+  a full mini-games suite alongside the main trainer. Word Search, Memory
+  Sequence, Number Sequence, Stroop Effect, Math Problems, Fast Category, Word
+  Flash, Emoji Memory, Crossword, and more, each targeting a different cognitive
+  skill that matters at the board.
+
+  📊 The app also includes a Score Tracker, a Word Checker to validate any word
+  against the dictionary, a Spanish Recall mode, and dark mode with anti-FOUC
+  support out of the box.
+
+  The project pushed me to work with Web Workers for the first time, manage
+  complex off-main-thread state, and design a preprocessing pipeline that compiles
+  raw .txt dictionaries into optimized JSON at build time. It's the most
+  technically demanding personal project I've built, and the one I use the most.`,
+    stack: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS v4', 'Web Workers']
+  }, 
   {
     title: 'Caliche Cards',
     link: 'https://caliche-cards.vercel.app/',
