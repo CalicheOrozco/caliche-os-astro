@@ -103,7 +103,7 @@ const myData = {
     title: 'What Should I Watch?',
     link: 'https://caliche-movies.vercel.app/',
     github: 'https://github.com/CalicheOrozco/caliche-movies',
-    imgUrl: portafolio26,
+    imgUrl: portafolio27,
     date: 'May 20, 2026',
     description: `This one came straight from a personal frustration I've had for years. Every time I sat down to watch something, I'd spend 20 or 30 minutes scrolling through Netflix, Prime, or whatever platform, couldn't decide on anything, and ended up just closing the app and doing something else. It happened constantly, and it was genuinely annoying.
 
