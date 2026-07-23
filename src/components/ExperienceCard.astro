@@ -5,12 +5,12 @@ import { Image } from "astro:assets";
 interface Props {
 	companyName: string;
 	jobTitle: string;
-	description: string;
+	description: string[];
 	imageUrl: string;
     startDate: string;
     endDate: string;
     location: string;
-    links: string[];
+    link: string;
     skills: string[];
 
 }
@@ -34,8 +34,8 @@ const { companyName, jobTitle, description, imageUrl, startDate, endDate, locati
     </p>
     <p class="text-gray-600 mb-4 text-sm">{location}</p>
     <div class="flex flex-col flex-grow">
-    {description.map((item, index) => (
-      <p key={index} class="text-gray-700 text-base">
+    {description.map((item) => (
+      <p class="text-gray-700 text-base">
         {item}
       </p>
     ))}

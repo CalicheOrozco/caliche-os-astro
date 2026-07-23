@@ -1,12 +1,13 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { Wikipedia, Wikipedia2, Wikipedia3 } from "../images/images.js";
 
 
 interface Props {
 	name: string;
-	imageSrc: string;
-	description: string;
+	imageSrc: ImageMetadata;
+	description: string[];
 	role: string;
     currentJob: string;
     currentProject: string;
@@ -80,8 +81,8 @@ const {
     <div class="flex flex-col md:flex-row md:items-start w-full">
       <div class="order-2 md:order-1 w-full md:w-1/2 xl:w-3/4 text-gray-700 md:pr-6 leading-relaxed text-base">
         <ul>
-          {description.map((item, index) => (
-            <li key={index} class="mb-6">
+          {description.map((item) => (
+            <li class="mb-6">
               {item}
             </li>
           ))}
