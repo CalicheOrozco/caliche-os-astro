@@ -32,6 +32,7 @@ import {
   portafolio25,
   portafolio26,
   portafolio27,
+  portafolio28,
   HTML,
   CSS,
   Javascript,
@@ -100,6 +101,29 @@ const myData = {
     }
   ],
   projects: [
+  {
+    title: 'NB Driving Test',
+    link: 'https://driver-license-canada-caliche.vercel.app',
+    github: 'https://github.com/CalicheOrozco/driver-license-canada-caliche',
+    imgUrl: portafolio28,
+    date: 'Sep 20, 2026',
+    description: `When I started studying for my New Brunswick driver's license test, I realized the official handbook is a long PDF and there was no good way to actually practice with it. I wanted something I could open on my phone, answer questions quickly, and see where I was making mistakes, so I built it.
+
+    💡 The app has a bank of 450 questions based on the official New Brunswick Driver's Handbook, split into Easy, Medium, and Hard difficulty levels. You can practice in Free Mode, with unlimited questions where you confirm each answer and get instant feedback, or take Exam Mode, a 20 question simulation that ends with a final score and a full review of every answer.
+
+    🚦 Many questions include the actual road signs, so you learn to recognize them visually instead of just memorizing text. The official handbook is also available inside the app, both in English and Spanish, to open or download as a PDF.
+
+    🌍 The whole interface and question bank are bilingual (English and Spanish) with a one tap language switch, and it is installable as a PWA so it works like a native app on your phone.
+
+    It started as a tool for my own preparation, and it is designed so anyone studying for the test can use it for free.`,
+    stack: [
+      'React 19',
+      'Vite',
+      'Tailwind CSS v4',
+      'PWA',
+      'i18n'
+    ]
+  },
   {
     title: 'What Should I Watch?',
     link: 'https://caliche-movies.vercel.app/',
