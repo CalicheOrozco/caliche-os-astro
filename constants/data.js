@@ -49,6 +49,7 @@ import {
   Dillo,
   NTT,
   Bedu,
+  PremiumMG,
   EstudiantesVerdesMx,
   IEEE,
   Logiety,
@@ -64,8 +65,8 @@ const myData = {
   githubUsername: 'CalicheOrozco',
   name: 'Caliche Orozco',
   profileDescription:
-    'Experienced Frontend Web Developer with expertise in React, TailwindCSS, and Scrum methodology | Python Enthusiast | Fluent in English and Spanish',
-  designation: 'Front-End Developer',
+    'Software Engineer with 5+ years of experience building React/TypeScript web applications | Team Lead | Agile/Scrum | Python Enthusiast | Fluent in English and Spanish',
+  designation: 'Software Engineer',
   avatarUrl: '/avatar.jpg',
   email: 'info@calicheorozco.com',
   navmenu: [
@@ -679,36 +680,51 @@ const myData = {
   },
   about: {
     title:
-      'I am a Computer Systems Analyst with 5+ years of experience analyzing business requirements, designing system solutions, and leading cross-functional technology teams. Currently, I am working on ',
+      'I am a Software Engineer with 5+ years of experience building responsive React/TypeScript web applications and leading cross-functional technology teams. Currently, I am working on ',
     titleEs:
-      'Soy un Computer Systems Analyst con más de 5 años de experiencia analizando requerimientos de negocio, diseñando soluciones de sistemas y liderando equipos tecnológicos multidisciplinarios. Actualmente, estoy trabajando en ',
+      'Soy un Software Engineer con más de 5 años de experiencia construyendo aplicaciones web responsivas con React/TypeScript y liderando equipos tecnológicos multidisciplinarios. Actualmente, estoy trabajando en ',
     description: [
-      `I am a Computer Systems Analyst with over 5 years of experience translating business needs into working technology. My work spans the full cycle of systems analysis: gathering requirements from stakeholders, designing solutions, selecting the right technologies, and delivering tools that measurably improve operational efficiency.`,
-      `I have strong knowledge in React, TypeScript, Python, GraphQL, REST APIs, Next.js, TailwindCSS, and PL/SQL. My focus is on building quality, efficient, and scalable solutions that solve real business problems rather than just shipping features.`,
+      `I am a Software Engineer with over 5 years of experience translating business needs into working technology. My work spans the full software lifecycle: gathering requirements, designing solutions, selecting the right technologies, and delivering tools that measurably improve operational efficiency.`,
+      `I have strong knowledge in React, TypeScript, Python, GraphQL, REST APIs, Next.js, TailwindCSS, PostgreSQL, and PL/SQL. My focus is on building quality, efficient, and scalable solutions that solve real business problems rather than just shipping features.`,
       `In my career, I have worked with interdisciplinary teams across steel manufacturing, education, consulting, and foreign trade. I have led requirements analysis sessions with international clients, designed automation tools and dashboards from the ground up that increased order processing speed by 80%, and improved website performance by 50%.`,
-      `I also have a solid understanding of UX/UI best practices and have implemented agile methodologies, such as Scrum, to optimize the speed and scalability of applications. I have mentored data analysts and coordinators, and served as sole technology lead for an organization, owning all architecture and implementation decisions.`,
+      `I also have a solid understanding of UX/UI best practices and have implemented agile methodologies, such as Scrum, to optimize the speed and scalability of applications. I have mentored data analysts and coordinators, and served as the sole software engineer at Premium MG Solutions, owning the full lifecycle of its internal platforms and architecting its design system.`,
       `In addition, I am fluent in English, which has allowed me to work with international teams across Mexico, Canada, and Australia. I have a strong interest in machine learning and AI-enhanced systems, and I am committed to continuing to develop my skills to create impactful solutions.`,
       `If you are looking for an experienced systems analyst with a strong commitment to quality, don't hesitate to contact me.`
     ],
     descriptionEs: [
-      `Soy un Computer Systems Analyst con más de 5 años de experiencia traduciendo necesidades de negocio en tecnología funcional. Mi trabajo abarca el ciclo completo del análisis de sistemas: levantamiento de requerimientos, diseño de soluciones, selección de tecnologías e implementación de herramientas que mejoran la eficiencia operativa de forma medible.`,
+      `Soy un Software Engineer con más de 5 años de experiencia traduciendo necesidades de negocio en tecnología funcional. Mi trabajo abarca el ciclo completo de desarrollo de software: levantamiento de requerimientos, diseño de soluciones, selección de tecnologías e implementación de herramientas que mejoran la eficiencia operativa de forma medible.`,
       `He estado desarrollando páginas web desde que tenía 12 años. Con el tiempo amplié mis habilidades hacia tecnologías modernas como React, Next.js, TypeScript, Python, GraphQL, Node.js, PL/SQL y Tailwind, entre otras.`,
       `He liderado sesiones de análisis de requerimientos con clientes internacionales, diseñado dashboards y herramientas de automatización desde cero que aumentaron la velocidad de procesamiento de órdenes en un 80%, y coordinado equipos multidisciplinarios de desarrolladores y analistas de datos.`
     ],
-    currentCompany: 'NTT Data & Dillo',
-    currentProject: 'Tenaris NMS Order Dressing',
-    currentProjectUrl: 'https://www.tenaris.com/en',
+    currentCompany: 'Premium MG Solutions & Dillo',
+    currentProject: 'Internal timesheet app, company intranet & design system',
+    currentProjectUrl: 'https://premiummg.ca',
     education: 'Veracruz Technological Institute',
     languages: 'Spanish and English'
   },
   experience: [
+    {
+      title: 'Computer Systems Engineer',
+      icon: PremiumMG,
+      company: 'Premium MG Solutions',
+      location: 'Moncton, New Brunswick, Canada',
+      startDate: 'Sep 2026',
+      endDate: 'Currently',
+      companyLink: 'https://premiummg.ca',
+      desc: [
+        '• Serve as the sole software engineer, owning the full lifecycle of the company\'s internal platforms: requirements, UI design, architecture, development, testing, and maintenance.',
+        '• Building an internal timesheet application and company intranet to streamline daily operations, and developing the company\'s public landing page.',
+        '• Architected a company design system and packaged it as a reusable internal library, standardizing UI and speeding up all future development.'
+      ],
+      skills: 'React · TypeScript · Design Systems · PostgreSQL · Laravel Forge · DigitalOcean · Software Architecture · Requirements Analysis'
+    },
     {
       title: 'Centers Leader Developer',
       icon: NTT,
       company: 'NTT Data',
       location: 'Mexico City, Mexico (Remote)',
       startDate: 'Apr 2025',
-      endDate: 'Currently',
+      endDate: 'Aug 2026',
       companyLink: 'https://mexico.nttdata.com/',
       desc: [
         'Project: Tenaris Tamsa NMS Project',
@@ -738,7 +754,7 @@ const myData = {
       skills: 'Requirements Gathering · C# · .NET · SQL · PL/SQL · Data Analysis'
     },
     {
-      title: 'Computer Systems Analyst',
+      title: 'Software Development Manager',
       icon: Dillo,
       company: 'Dillo',
       location: 'Sydney, Australia (Remote)',
@@ -746,13 +762,10 @@ const myData = {
       endDate: 'Currently',
       companyLink: 'https://dillo.com.au',
       desc: [
-        '• Served as the sole technology lead for the organization, responsible for all systems analysis, architecture design, and software implementation decisions.',
-        '• Analyzed business and user requirements to define technical specifications and design system solutions tailored to company needs.',
-        '• Evaluated and selected technologies, frameworks, and third-party services for each project, ensuring performance, scalability, and long-term maintainability.',
-        '• Designed system architecture including data flow, component structure, and service integrations from the ground up.',
-        '• Managed the full software development lifecycle, from requirements gathering through deployment, ensuring timely and efficient delivery.'
+        '• Led software development teams delivering scalable, high-quality solutions, defining processes and milestones that kept projects on schedule under tight deadlines.',
+        '• Fostered a collaborative environment that improved team performance and knowledge sharing.'
       ],
-      skills: 'System Architecture · Technology Evaluation · React · TypeScript · Python · REST APIs · Git'
+      skills: 'Team Leadership · Agile/Scrum · Code Reviews · React · TypeScript · Python · Git'
     },
     {
       title: 'Frontend Web Developer',
